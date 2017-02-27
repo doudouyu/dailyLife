@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/gray">
+
+    <include layout="@layout/layout_title" android:id="@id/title_view" />
+
+
+    <LinearLayout
+        android:id="@+id/ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/title_left"
+        android:layout_alignParentBottom="true">
+        <TextView
+            android:id="@+id/tv_reset"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:textColor="@color/pink"
+            android:padding="@dimen/title_left"
+            android:textSize="16dp"
+            android:layout_marginLeft="@dimen/content_left"
+            android:gravity="center"
+            android:background="@drawable/rectangle_pink"
+            android:text="重置"
+            />
+        <TextView
+            android:id="@+id/tv_search"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:textColor="@color/dark_gray"
+            android:textSize="16dp"
+            android:gravity="center"
+            android:layout_marginLeft="@dimen/content_left"
+            android:background="@drawable/red_rectangle"
+            android:text="查询"
+            android:layout_marginRight="@dimen/title_left"
+            />
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/lv_search"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/title_view"
+        android:layout_above="@id/ll"
+        android:scrollbars="none"
+        android:divider="@null"
+        ></ListView>
+</RelativeLayout>

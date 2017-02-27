@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="title_view" type="id">title_view</item>
+    <item name="selected" type="id">selected</item>
+    <item name="left" type="id">left</item>
+    <item name="center" type="id">center</item>
+    <item name="right" type="id">right</item>
+    <item name="iv_search" type="id">iv_search</item>
+</resources>

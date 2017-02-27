@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/iv_back"
+        android:layout_width="@dimen/title_image_size"
+        android:layout_height="@dimen/title_image_size"
+        android:layout_marginTop="@dimen/title_left"
+        android:layout_marginLeft="@dimen/title_left"
+        android:src="@mipmap/deletecycle" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/top50"
+        android:text="@string/remind" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/top50"
+            android:hint="@string/demo1" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/demo2" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal">
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_weight="4"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/title_left"
+            android:paddingBottom="@dimen/title_left"
+            android:layout_marginLeft="@dimen/title_left"
+            android:layout_marginRight="@dimen/title_left"
+            android:textColor="@color/gray"
+            android:hint="@string/remind1"
+            android:gravity="center_horizontal"
+            android:textSize="16dp"
+            android:background="@drawable/rectangle"/>
+
+        <TextView
+            android:id="@+id/tv_commit"
+            android:layout_marginLeft="@dimen/title_left"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:padding="@dimen/title_top"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:text="@string/commit" />
+    </LinearLayout>
+</RelativeLayout>

@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray"
+    android:orientation="vertical">
+
+    <include
+        android:id="@id/title_view"
+        layout="@layout/layout_title" />
+
+    <ImageView
+        android:id="@+id/iv_icon_change"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:src="@mipmap/ic_launcher" />
+
+    <RelativeLayout
+        android:id="@+id/rl_name"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="@dimen/title_left"
+        android:paddingLeft="@dimen/title_left"
+        android:background="@color/white"
+        android:paddingRight="@dimen/title_left">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="昵称"
+            android:textColor="@color/dark_gray"
+            android:textSize="14dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:text="fish"
+            android:textColor="@color/dark_gray"
+            android:textSize="14dp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_phone"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="@dimen/title_top"
+        android:paddingLeft="@dimen/title_left"
+        android:background="@color/white"
+        android:paddingRight="@dimen/title_left">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="手机"
+            android:textColor="@color/dark_gray"
+            android:textSize="14dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/title_top"
+            android:background="@color/pink"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:text="+绑定"
+            android:textColor="@color/white"
+            android:textSize="14dp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_email"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="@dimen/title_top"
+        android:paddingLeft="@dimen/title_left"
+        android:background="@color/white"
+        android:paddingRight="@dimen/title_left">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="邮箱"
+            android:textColor="@color/dark_gray"
+            android:textSize="14dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/title_top"
+            android:background="@color/pink"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:text="+绑定"
+            android:textColor="@color/white"
+            android:textSize="14dp" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/rl_qq"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="@dimen/title_left"
+        android:paddingLeft="@dimen/title_left"
+        android:background="@color/white"
+        android:paddingRight="@dimen/title_left">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="QQ"
+            android:textColor="@color/dark_gray"
+            android:textSize="14dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/title_top"
+            android:background="@color/pink"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:text="+绑定"
+            android:textColor="@color/white"
+            android:textSize="14dp" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/rl_we_chat"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@color/white"
+        android:layout_marginTop="@dimen/title_top"
+        android:paddingLeft="@dimen/title_left"
+        android:paddingRight="@dimen/title_left">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="微信"
+            android:textColor="@color/dark_gray"
+            android:textSize="14dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:text="fish"
+            android:textColor="@color/dark_gray"
+            android:textSize="14dp" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_out_login"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:gravity="center"
+        android:text="退出登录"
+        android:layout_marginTop="@dimen/content_left"
+        android:background="@color/white"
+        android:textColor="@color/pink"
+        android:textSize="16dp" />
+</LinearLayout>

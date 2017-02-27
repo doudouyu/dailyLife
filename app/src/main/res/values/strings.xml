@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">beanLife</string>
+    <string name="remind">输入文本 快速记帐</string>
+    <string name="demo1">可以输入</string>
+    <string name="demo2">情人节买花999元</string>
+    <string name="commit">提交</string>
+    <string name="remind1">请输入内容和金额</string>
+    <string name="payout">支出</string>
+    <string name="payin">收入</string>
+    <string name="debit_card">储蓄卡</string>
+    <string name="credit_card">信用卡</string>
+    <string name="please_input">请输入</string>
+    <string name="telephone_number">可留下联系方式方便给您反馈</string>
+    <string name="qq_number">QQ/WeChat/Email/Phone</string>
+    <string name="email_remind">直接扫描或用微信扫描关注[微记账应用]，让你更懂记账</string>
+    <string name="share">分享</string>
+    <string name="join">邀请多人一起记账，共用一个独立版本；可为不同生活圈子，分别开启联手记账。</string>
+    <string name="join_us">邀请对方加入</string>
+    <string name="what_account">什么是联手记?</string>
+    <string name="complete">完成</string>
+</resources>

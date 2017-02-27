@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    >
+
+    <ImageView
+        android:id="@+id/record_icon"
+        android:layout_width="@dimen/content_image_size"
+        android:layout_height="@dimen/content_image_size"
+        android:layout_marginLeft="@dimen/title_left"
+        android:layout_marginTop="@dimen/title_left"
+        android:layout_marginBottom="@dimen/title_left"/>
+
+    <TextView
+        android:id="@+id/record_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="@dimen/title_left"
+        android:textSize="16dp" />
+</LinearLayout>

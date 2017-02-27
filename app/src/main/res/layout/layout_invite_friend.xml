@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray"
+    android:orientation="vertical">
+
+    <include android:id="@id/title_view" layout="@layout/layout_title" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/web_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/title_left"
+            android:src="@mipmap/erweima"></ImageView>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/title_left"
+            android:gravity="center"
+            android:padding="@dimen/title_top"
+            android:text="对方用微记账扫码可以加入"
+            android:textSize="@dimen/detail_text_size_big14" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_scan_show"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/title_left"
+        android:gravity="right"
+        android:padding="@dimen/title_top"
+        android:text="无法扫码？"
+        android:textSize="@dimen/detail_text_size_big14" />
+
+    <LinearLayout
+        android:id="@+id/ll_invite_by_phone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/title_left"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/title_left"
+            android:padding="@dimen/title_top"
+            android:text="可通过以下方式邀请"
+            android:textSize="@dimen/detail_text_size_big14" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/title_left"
+            android:background="@color/white"
+            android:padding="@dimen/title_left"
+            android:hint="13608676133"
+            android:textSize="@dimen/detail_text_size_big14" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/content_left"
+            android:layout_marginRight="@dimen/content_left"
+            android:layout_marginTop="@dimen/title_left"
+            android:background="@drawable/red_rectangle"
+            android:gravity="center"
+            android:padding="@dimen/title_left"
+            android:text="发送邀请"
+            android:textSize="@dimen/detail_text_size_big16" />
+    </LinearLayout>
+</LinearLayout>

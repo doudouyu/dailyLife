@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="life.bean.com.beanlife">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        <activity android:name=".activity.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".activity.ShortEditorActivity"/>
+        <activity android:name=".activity.TextEditorActivity"/>
+        <activity android:name=".activity.VoiceEditorActivity"/>
+        <activity android:name=".activity.SearchActivity"/>
+        <activity android:name=".activity.SearchResultActivity"/>
+        <activity android:name=".activity.AccountRememberActivity"/>
+        <activity android:name=".activity.InviteFriendActivity"/>
+        <activity android:name=".activity.NumberManageActivity"/>
+        <activity android:name=".activity.NumberBindActivity"/>
+    </application>
+
+</manifest>

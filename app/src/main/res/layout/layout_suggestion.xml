@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="240dp"
+        android:background="@color/white">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:hint="@string/please_input" />
+        <ImageView
+            android:layout_width="@dimen/voice_image_size"
+            android:layout_height="@dimen/voice_image_size"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="@dimen/title_left"
+            android:layout_marginRight="@dimen/title_left"
+            android:layout_marginLeft="@dimen/title_left"
+            android:src="@mipmap/gray_voice" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="@dimen/title_left"
+            android:src="@mipmap/gray_add" />
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/title_top"
+        android:paddingLeft="@dimen/title_left"
+        android:paddingTop="@dimen/title_top"
+        android:text="@string/telephone_number" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:hint="@string/qq_number"
+        android:paddingBottom="@dimen/title_top"
+        android:paddingLeft="@dimen/title_left"
+        android:paddingTop="@dimen/title_top" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginLeft="@dimen/title_left"
+        android:layout_marginRight="@dimen/title_left"
+        android:layout_marginTop="@dimen/title_left"
+        android:background="@drawable/red_rectangle"
+        android:gravity="center"
+        android:textSize="20dp"
+        android:text="@string/commit" />
+
+    <ImageView
+        android:id="@+id/image_scan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/title_left"
+        android:src="@mipmap/erweima" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginLeft="@dimen/content_left"
+        android:layout_marginRight="@dimen/content_left"
+        android:layout_marginTop="@dimen/title_left"
+        android:gravity="center"
+        android:text="@string/email_remind" />
+</LinearLayout>

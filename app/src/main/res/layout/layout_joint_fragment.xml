@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/ll_remind"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp60"
+        android:background="@color/yellow"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/contact" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:text="@string/join" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_join"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp60"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white"
+        android:gravity="center"
+        android:text="@string/join_us"
+        android:textColor="@color/pink"
+        android:textSize="20dp" />
+
+    <ListView
+        android:id="@+id/lv_contact"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/tv_join"
+        android:layout_below="@id/ll_remind"
+        android:divider="@null"
+        android:listSelector="@android:color/transparent"
+        android:scrollbars="none"></ListView>
+<TextView
+    android:id="@+id/tv_describe"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_centerVertical="true"
+    android:padding="@dimen/title_top"
+    android:layout_alignParentRight="true"
+    android:layout_marginRight="@dimen/title_left"
+    android:textSize="16dp"
+    android:textColor="@color/dark_gray"
+    android:text="@string/what_account"/>
+</RelativeLayout>

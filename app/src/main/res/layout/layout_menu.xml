@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
+        android:padding="@dimen/title_left"
+        android:background="@color/pink">
+
+        <ImageView
+            android:id="@+id/icon"
+            android:layout_marginTop="@dimen/title_top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_launcher" />
+
+        <TextView
+            android:id="@+id/login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/icon"
+            android:layout_marginTop="@dimen/title_top"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:text="lunatic" />
+
+        <LinearLayout
+            android:paddingTop="@dimen/title_top"
+            android:paddingRight="@dimen/title_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:orientation="horizontal"
+            >
+
+            <ImageView
+                android:id="@+id/fresh"
+                android:layout_width="@dimen/title_image_size"
+                android:layout_height="@dimen/title_image_size"
+                android:layout_marginLeft="@dimen/content_left"
+                android:src="@mipmap/refresh" />
+
+            <ImageView
+                android:id="@+id/ring"
+                android:layout_width="@dimen/title_image_size"
+                android:layout_height="@dimen/title_image_size"
+                android:layout_marginLeft="@dimen/title_left"
+                android:src="@mipmap/ring" />
+
+            <ImageView
+                android:id="@+id/scan"
+                android:layout_width="@dimen/title_image_size"
+                android:layout_height="@dimen/title_image_size"
+                android:layout_marginLeft="@dimen/title_left"
+                android:src="@mipmap/scan" />
+
+            <ImageView
+                android:id="@+id/setting"
+                android:layout_width="@dimen/title_image_size"
+                android:layout_height="@dimen/title_image_size"
+                android:layout_marginLeft="@dimen/title_left"
+                android:src="@mipmap/set" />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/menu_detail"
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none"
+        android:divider="@null"></ListView>
+</LinearLayout>
