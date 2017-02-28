@@ -7,10 +7,6 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
-import life.bean.com.beanlife.R;
-import life.bean.com.beanlife.utils.Common;
-
 /**
  * 作者 : bean on 2017/2/21/0021.
  * 注释 :
@@ -43,6 +39,15 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
-
+        switch (v.getId()){
+//            case R.id.selected:
+//                getFragmentManager().popBackStack();
+//                break;
+            default:
+                onInnerClick(v);
+                break;
+        }
     }
+
+    public void onInnerClick(View v){}
 }

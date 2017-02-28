@@ -1,5 +1,6 @@
 package life.bean.com.beanlife.fragment;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.util.Log;
 import android.view.View;
@@ -11,7 +12,9 @@ import java.util.ArrayList;
 
 import life.bean.com.beanlife.R;
 import life.bean.com.beanlife.activity.MainActivity;
+import life.bean.com.beanlife.activity.NoticeActivity;
 import life.bean.com.beanlife.activity.NumberManageActivity;
+import life.bean.com.beanlife.activity.SettingActivity;
 import life.bean.com.beanlife.adapter.MyMenuAdapter;
 import life.bean.com.beanlife.bean.MenuInfo;
 
@@ -29,6 +32,7 @@ public class MenuFragment extends BaseFragment {
     private ImageView ivRing;
     private ImageView ivScan;
     private ImageView ivSetting;
+    private Intent intent;
 
     @Override
     public int getLayoutId() {
@@ -56,8 +60,6 @@ public class MenuFragment extends BaseFragment {
     @Override
     public void initData() {
         menu.setAdapter(new MyMenuAdapter(list, context));
-
-
     }
 
     @Override
@@ -94,16 +96,22 @@ public class MenuFragment extends BaseFragment {
         activity.getDrawerLayout().closeDrawer(activity.getMenuLayout());
         switch (v.getId()) {
             case R.id.icon:
-                Intent intent = new Intent(context,NumberManageActivity.class);
+                intent = new Intent(context,NumberManageActivity.class);
                 startActivity(intent);
                 break;
             case R.id.fresh:
                 break;
             case R.id.ring:
+                intent = new Intent(context,NoticeActivity.class);
+                startActivity(intent);
                 break;
             case R.id.scan:
+                intent = new Intent(context,NoticeActivity.class);
+                startActivity(intent);
                 break;
             case R.id.setting:
+                intent = new Intent(context,SettingActivity.class);
+                startActivity(intent);
                 break;
             default:
                 break;

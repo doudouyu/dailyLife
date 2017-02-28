@@ -16,5 +16,6 @@
     <dimen name="dp2">2dp</dimen>
     <dimen name="dp60">60dp</dimen>
     <dimen name="detail_text_size_big16">16dp</dimen>
+    <dimen name="dp16">16dp</dimen>
 
 </resources>

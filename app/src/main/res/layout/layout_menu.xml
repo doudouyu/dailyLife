@@ -15,7 +15,7 @@
             android:layout_marginTop="@dimen/title_top"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@mipmap/ic_launcher" />
+            android:src="@mipmap/circular_logo" />
 
         <TextView
             android:id="@+id/login"
@@ -24,6 +24,7 @@
             android:layout_below="@id/icon"
             android:layout_marginTop="@dimen/title_top"
             android:gravity="center"
+            android:layout_marginLeft="@dimen/title_left"
             android:textColor="@color/white"
             android:text="lunatic" />
 
