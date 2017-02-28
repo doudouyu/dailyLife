@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_marginTop="@dimen/dp1"
+    android:background="@color/white"
+    android:paddingTop="@dimen/dp3"
+    android:paddingBottom="@dimen/dp3">
+
+    <TextView
+        android:id="@+id/tv_setting_title"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dp3"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/title_top"
+        android:textSize="@dimen/dp16"
+        android:text="账号管理" />
+
+    <ImageView
+        android:id="@+id/iv_setting_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/title_top"
+        android:src="@mipmap/back_right" />
+</LinearLayout>

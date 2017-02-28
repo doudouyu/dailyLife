@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_marginTop="@dimen/dp2"
+    android:background="@color/white"
+    android:paddingTop="@dimen/dp3"
+    android:paddingBottom="@dimen/dp3">
+
+    <TextView
+        android:id="@+id/tv_setting_title"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:padding="@dimen/dp3"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="@dimen/title_top"
+        android:text="账号管理" />
+
+    <ImageView
+        android:id="@+id/iv_setting_icon"
+        android:layout_width="@dimen/title_image_size"
+        android:layout_height="@dimen/title_image_size"
+        android:layout_marginRight="@dimen/content_left"
+        android:src="@mipmap/circular_logo" />
+
+    <ImageView
+        android:id="@+id/iv_setting_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/title_top"
+        android:layout_marginLeft="@dimen/title_top"
+        android:src="@mipmap/back_right" />
+</LinearLayout>
