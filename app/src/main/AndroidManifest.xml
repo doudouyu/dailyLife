@@ -26,6 +26,8 @@
         <activity android:name=".activity.SettingActivity"/>
         <activity android:name=".activity.SuggestionActivity"/>
         <activity android:name=".activity.AboutUsActivity"/>
+        <activity android:name=".activity.AboutUsDetailActivity"/>
+        <activity android:name=".activity.NoticeActivity"/>
     </application>
 
 </manifest>

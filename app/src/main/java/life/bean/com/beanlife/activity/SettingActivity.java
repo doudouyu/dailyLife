@@ -110,10 +110,12 @@ public class SettingActivity extends BaseActivity {
         super.onInnerClick(v);
         switch (v.getId()) {
             case R.id.number_manage:
-                Toast.makeText(context, "number_manage", Toast.LENGTH_SHORT).show();
+                intent = new Intent(context,NumberManageActivity.class);
+                startActivity(intent);
                 break;
             case R.id.password:
-                Toast.makeText(context, "password", Toast.LENGTH_SHORT).show();
+                intent = new Intent(context,PasswordActivity.class);
+                startActivity(intent);
                 break;
             case R.id.out_record:
                 Toast.makeText(context, "out_record", Toast.LENGTH_SHORT).show();

@@ -7,5 +7,5 @@ package life.bean.com.beanlife.utils;
 public class Common {
     public static int iconId =1;//1菜单2返回
     public static int titleSearchId =1;//1隐藏2显示
-
+    public static boolean isSelf = false;
 }
