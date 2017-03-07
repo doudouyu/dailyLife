@@ -18,7 +18,7 @@ public class PasswordActivity extends BaseActivity{
     }
 
     @Override
-    protected void initData() {
+    public void initData() {
 
     }
 }

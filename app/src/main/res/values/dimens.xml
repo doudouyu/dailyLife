@@ -17,5 +17,8 @@
     <dimen name="dp60">60dp</dimen>
     <dimen name="detail_text_size_big16">16dp</dimen>
     <dimen name="dp16">16dp</dimen>
+    <dimen name="dp10">10dp</dimen>
+    <dimen name="icon_image_size">60dp</dimen>
+    <dimen name="dp200">200dp</dimen>
 
 </resources>

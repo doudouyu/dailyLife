@@ -43,7 +43,7 @@ public class AboutUsActivity extends BaseActivity {
     }
 
     @Override
-    protected void initData() {
+    public void initData() {
         setTitleText("关于我们");
     }
 

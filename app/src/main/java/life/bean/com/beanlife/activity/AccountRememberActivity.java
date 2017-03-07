@@ -23,7 +23,7 @@ public class AccountRememberActivity extends BaseActivity{
     }
 
     @Override
-    protected void initData() {
+    public void initData() {
         setTitleText("什么是联手记？");
     }
 

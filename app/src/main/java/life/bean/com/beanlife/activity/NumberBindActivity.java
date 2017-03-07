@@ -46,7 +46,7 @@ public class NumberBindActivity extends BaseActivity {
     }
 
     @Override
-    protected void initData() {
+    public void initData() {
         if ("1".equals(intent.getStringExtra("type"))) {
             etNumber.setHint("请输入手机号码");
             setTitleText("手机绑定");

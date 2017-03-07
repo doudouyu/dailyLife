@@ -10,12 +10,12 @@
         android:padding="@dimen/title_left"
         android:background="@color/pink">
 
-        <ImageView
+        <life.bean.com.beanlife.view.CycleImageView
             android:id="@+id/icon"
             android:layout_marginTop="@dimen/title_top"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@mipmap/circular_logo" />
+            android:layout_width="@dimen/icon_image_size"
+            android:layout_height="@dimen/icon_image_size"
+            android:src="@mipmap/tu2" />
 
         <TextView
             android:id="@+id/login"

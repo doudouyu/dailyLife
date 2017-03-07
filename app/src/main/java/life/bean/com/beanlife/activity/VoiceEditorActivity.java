@@ -18,7 +18,7 @@ public class VoiceEditorActivity extends BaseActivity{
     }
 
     @Override
-    protected void initData() {
+    public void initData() {
 
     }
 }

@@ -43,7 +43,7 @@ public class NumberManageActivity extends BaseActivity {
     }
 
     @Override
-    protected void initData() {
+    public void initData() {
         setTitleText("账号管理");
         tvOutLogin.setOnClickListener(this);
         rlName.setOnClickListener(this);

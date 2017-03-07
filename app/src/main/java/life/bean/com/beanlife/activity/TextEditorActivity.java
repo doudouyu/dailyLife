@@ -27,7 +27,7 @@ public class TextEditorActivity extends BaseActivity {
     }
 
     @Override
-    protected void initData() {
+    public void initData() {
         ivCommit.setOnClickListener(this);
     }
 

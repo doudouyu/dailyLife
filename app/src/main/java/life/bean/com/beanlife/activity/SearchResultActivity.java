@@ -26,7 +26,7 @@ public class SearchResultActivity extends BaseActivity{
     }
 
     @Override
-    protected void initData() {
+    public void initData() {
        setTitleText("账单查询结果");
         Common.titleSearchId = 1;
         Common.iconId = 2;

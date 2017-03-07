@@ -10,6 +10,7 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import cn.sharesdk.framework.ShareSDK;
 import life.bean.com.beanlife.R;
 import life.bean.com.beanlife.utils.Common;
 
@@ -27,6 +28,7 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(getLayoutId());
+
         context = this;
         initView();
         dealCommon();
@@ -69,7 +71,7 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
     /**
      * 初始化数据
      */
-    protected abstract void initData();
+    public abstract void initData();
 
     @Override
     public void onClick(View v) {

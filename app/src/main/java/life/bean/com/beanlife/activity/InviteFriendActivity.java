@@ -27,7 +27,7 @@ public class InviteFriendActivity extends BaseActivity{
     }
 
     @Override
-    protected void initData() {
+    public void initData() {
         setTitleText("联手记邀请");
         tvShow.setOnClickListener(this);
     }

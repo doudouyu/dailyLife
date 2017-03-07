@@ -42,7 +42,7 @@ public class SuggestionActivity extends BaseActivity {
     }
 
     @Override
-    protected void initData() {
+    public void initData() {
         ivBack.setImageResource(R.mipmap.back);
         tvLeft.setText("意见反馈");
     }

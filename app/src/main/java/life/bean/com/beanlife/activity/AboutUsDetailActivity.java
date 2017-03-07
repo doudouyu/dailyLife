@@ -29,7 +29,7 @@ public class AboutUsDetailActivity extends BaseActivity {
     }
 
     @Override
-    protected void initData() {
+    public void initData() {
         setTitleText(title);
         if ("常见问题".equals(title)) {
             getSupportFragmentManager().beginTransaction().replace(R.id.about_us_detail, new CommonProblemFragment()).commit();

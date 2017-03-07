@@ -90,7 +90,7 @@ public class SettingActivity extends BaseActivity {
     }
 
     @Override
-    protected void initData() {
+    public void initData() {
         setTitleText("设置");
         tvNumber.setText("账号管理");
         tvPassword.setText("手势密码");

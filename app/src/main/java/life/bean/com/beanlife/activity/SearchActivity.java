@@ -38,7 +38,7 @@ public class SearchActivity extends BaseActivity{
     }
 
     @Override
-    protected void initData() {
+    public void initData() {
         setTitleText("账单查询");
         tvReset.setOnClickListener(this);
         tvSearch.setOnClickListener(this);

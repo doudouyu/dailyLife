@@ -18,7 +18,7 @@ public class NoticeActivity extends BaseActivity{
     }
 
     @Override
-    protected void initData() {
+    public void initData() {
 
     }
 }

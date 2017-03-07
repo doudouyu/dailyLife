@@ -6,6 +6,8 @@ import android.view.View;
 import android.widget.FrameLayout;
 import java.util.ArrayList;
 
+import cn.sharesdk.framework.ShareSDK;
+import cn.sharesdk.onekeyshare.OnekeyShare;
 import life.bean.com.beanlife.R;
 import life.bean.com.beanlife.adapter.MyPagerAdapter;
 import life.bean.com.beanlife.fragment.AccountRingFragment;
@@ -39,6 +41,7 @@ public class MainActivity extends BaseActivity {
 
     @Override
     public void initView() {
+        ShareSDK.initSDK(context,"1bc0aa65ad7fd");
         layout = (DrawerLayout) findViewById(R.id.drawer_layout);
         menu = (FrameLayout) findViewById(R.id.menu);
         content = (ViewPager) findViewById(R.id.content);
@@ -65,7 +68,7 @@ public class MainActivity extends BaseActivity {
     }
 
     @Override
-    protected void initData() {
+    public void initData() {
         list.add(new DailyLifeFragment());
         list.add(new statisticalAnalysisFragment());
         list.add(new JointAccountFragment());
