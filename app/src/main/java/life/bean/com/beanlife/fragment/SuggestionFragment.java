@@ -1,6 +1,8 @@
 package life.bean.com.beanlife.fragment;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
@@ -9,6 +11,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -24,6 +27,7 @@ import com.iflytek.cloud.SpeechRecognizer;
 
 import life.bean.com.beanlife.R;
 import life.bean.com.beanlife.activity.MainActivity;
+import life.bean.com.beanlife.activity.NumberManageActivity;
 import life.bean.com.beanlife.view.MyImageView;
 
 /**
@@ -118,7 +122,7 @@ public class SuggestionFragment extends BaseFragment {
                 showToast("提交");
                 break;
             case R.id.add_pictures:
-                //调用相册
+                // todo 写一个底部菜单来调用相册
                 Intent intent = new Intent(Intent.ACTION_PICK,
                         android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
                 startActivityForResult(intent, IMAGE);
@@ -131,8 +135,26 @@ public class SuggestionFragment extends BaseFragment {
     private void checkVoicePermission() {
         //有权限就弹出来一个对话框
         showToast("录音");
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        View view = LayoutInflater.from(context).inflate(R.layout.layout_dialog_voice,null);
+        builder.setView(view);
+        builder.setTitle("准备录音");
 
-        startRecord();
+        builder.setPositiveButton("完成", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+//                startRecord();
+            }
+        });
+        builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+//                dialog.dismiss();
+            }
+        });
+        AlertDialog dialog = builder.create();
+        dialog.show();
+
         //todo 检查权限，成功获取权限后调用录音功能
     }
 
