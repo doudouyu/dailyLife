@@ -6,8 +6,8 @@ android {
 
     defaultConfig {
         applicationId "life.bean.com.beanlife"
-        minSdkVersion 18
-        targetSdkVersion 23
+        minSdkVersion 16
+        targetSdkVersion 25
         versionCode 1
         versionName "1.0"
     }
@@ -39,7 +39,9 @@ dependencies {
     compile files('libs/ShareSDK-Wechat-Core-2.8.1.jar')
     compile files('libs/ShareSDK-Wechat-Favorite-2.8.1.jar')
     compile files('libs/ShareSDK-Wechat-Moments-2.8.1.jar')
-    compile 'com.github.PhilJay:MPAndroidChart:v2.1.4'//图表
+    compile 'com.github.PhilJay:MPAndroidChart:v2.1.4'
+    //图表
     //    compile 'de.hdodenhof:circleimageview:2.1.0'
-//    compile 'org.quanqi:mpandroidchart:1.7.5'
+    //    compile 'org.quanqi:mpandroidchart:1.7.5'
+    compile files('libs/253_sms_sdk_lib_v_1.3_p.jar')
 }

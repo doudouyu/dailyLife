@@ -35,6 +35,7 @@ public class MenuFragment extends BaseFragment {
     private ImageView ivScan;
     private ImageView ivSetting;
     private Intent intent;
+    private String titleText;
 
     @Override
     public int getLayoutId() {
@@ -43,13 +44,7 @@ public class MenuFragment extends BaseFragment {
 
     @Override
     public void initView(View view) {
-        list.add(new MenuInfo("日常生活", R.mipmap.book));
-        list.add(new MenuInfo("统计分析", R.mipmap.count));
-        list.add(new MenuInfo("联手记账", R.mipmap.red_contact));
-        list.add(new MenuInfo("记账提醒", R.mipmap.ring1));
-        list.add(new MenuInfo("银行卡包", R.mipmap.card));
-        list.add(new MenuInfo("金融服务", R.mipmap.finance));
-        list.add(new MenuInfo("意见反馈", R.mipmap.email));
+       initList();
         Log.i("list", list.size() + "");
         menu = (ListView) view.findViewById(R.id.menu_detail);
         ivIcon = (ImageView) view.findViewById(R.id.icon);
@@ -57,6 +52,16 @@ public class MenuFragment extends BaseFragment {
         ivRing = (ImageView) view.findViewById(R.id.ring);
         ivScan = (ImageView) view.findViewById(R.id.scan);
         ivSetting = (ImageView) view.findViewById(R.id.setting);
+    }
+
+    private void initList() {
+        list.add(new MenuInfo("日常生活", R.mipmap.book));
+        list.add(new MenuInfo("统计分析", R.mipmap.count));
+        list.add(new MenuInfo("联手记账", R.mipmap.red_contact));
+        list.add(new MenuInfo("记账提醒", R.mipmap.ring1));
+        list.add(new MenuInfo("银行卡包", R.mipmap.card));
+        list.add(new MenuInfo("金融服务", R.mipmap.finance));
+        list.add(new MenuInfo("意见反馈", R.mipmap.email));
     }
 
     @Override
@@ -74,6 +79,17 @@ public class MenuFragment extends BaseFragment {
         ivSetting.setOnClickListener(this);
     }
 
+    public String  getTitleText(int position) {
+        if (list.size()<=0){
+            initList();
+            if(titleText==null){
+                titleText = list.get(position).getTitle();
+            }
+        }
+
+        return titleText;
+    }
+
     private class MyMenuItemOnClickListener implements android.widget.AdapterView.OnItemClickListener {
 
 
@@ -83,9 +99,10 @@ public class MenuFragment extends BaseFragment {
             MainActivity activity = (MainActivity) getActivity();
             activity.getDrawerLayout().closeDrawer(activity.getMenuLayout());
             //更改右侧的布局
+            titleText = list.get(position).getTitle();
             currentPosition = position;
             activity.setCurrentPosition(position);
-            activity.setTitleText(list.get(position).getTitle());
+            activity.setTitleText(titleText);
             activity.setCurrentPagerItem(position);
         }
     }
@@ -102,7 +119,7 @@ public class MenuFragment extends BaseFragment {
                 startActivity(intent);
                 break;
             case R.id.fresh:
-                showShare();
+
                 break;
             case R.id.ring:
                 intent = new Intent(context, NoticeActivity.class);
@@ -121,30 +138,5 @@ public class MenuFragment extends BaseFragment {
         }
     }
 
-    private void showShare() {
-        ShareSDK.initSDK(context);
-        OnekeyShare oks = new OnekeyShare();
-//关闭sso授权
-        oks.disableSSOWhenAuthorize();
 
-// title标题，印象笔记、邮箱、信息、微信、人人网和QQ空间等使用
-        oks.setTitle("玉树临风美少年，揽镜自顾夜不眠");
-// titleUrl是标题的网络链接，QQ和QQ空间等使用
-        oks.setTitleUrl("http://tieba.baidu.com/p/4320072936");
-// text是分享文本，所有平台都需要这个字段
-        oks.setText("我是美女小豆豆");
-// imagePath是图片的本地路径，Linked-In以外的平台都支持此参数
-//oks.setImagePath("/sdcard/test.jpg");//确保SDcard下面存在此张图片
-// url仅在微信（包括好友和朋友圈）中使用
-        oks.setUrl("http://tieba.baidu.com/p/4320072936");
-// comment是我对这条分享的评论，仅在人人网和QQ空间使用
-        oks.setComment("这是我开发的app");
-// site是分享此内容的网站名称，仅在QQ空间使用
-        oks.setSite(getString(R.string.app_name));
-// siteUrl是分享此内容的网站地址，仅在QQ空间使用
-        oks.setSiteUrl("http://tieba.baidu.com/p/4320072936");
-
-// 启动分享GUI
-        oks.show(context);
-    }
 }

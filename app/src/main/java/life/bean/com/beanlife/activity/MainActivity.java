@@ -78,6 +78,7 @@ public class MainActivity extends BaseActivity {
         list.add(new SuggestionFragment());
         content.setAdapter(new MyPagerAdapter(getSupportFragmentManager(), list));
         content.setCurrentItem(0);
+        content.addOnPageChangeListener(new MyOnPageChangeListener());
         setTitleText("日常生活");
     }
 
@@ -120,8 +121,25 @@ public class MainActivity extends BaseActivity {
             titleSearch.setVisibility(View.GONE);
             Common.titleSearchId = 1;
         }
+
         content.setCurrentItem(position);
     }
 
 
+    private class MyOnPageChangeListener implements ViewPager.OnPageChangeListener {
+        @Override
+        public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+        }
+
+        @Override
+        public void onPageSelected(int position) {
+            setTitleText(new MenuFragment().getTitleText(position)+"");
+        }
+
+        @Override
+        public void onPageScrollStateChanged(int state) {
+
+        }
+    }
 }

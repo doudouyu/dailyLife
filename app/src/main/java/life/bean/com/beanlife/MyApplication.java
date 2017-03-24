@@ -1,14 +1,18 @@
+package life.bean.com.beanlife;
+
 import android.app.Application;
+
 import com.cl253.smssdk.lib.SMSSDK;
 
 /**
- * 作者 : bean on 2017/2/21/0021.
+ * 作者 : bean on 2017/3/21/0021.
  * 注释 :
  */
 public class MyApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        SMSSDK.initSDK(this,"df16c280304d46f58ae43e6b48734b","20847173102bcd8d11dfad36a3f4b1");
 
     }
 }

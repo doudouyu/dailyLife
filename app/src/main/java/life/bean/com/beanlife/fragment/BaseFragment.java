@@ -7,6 +7,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
+
 /**
  * 作者 : bean on 2017/2/21/0021.
  * 注释 :
@@ -50,4 +52,7 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
     }
 
     public void onInnerClick(View v){}
+    public void showToast(String title) {
+        Toast.makeText(context,title,Toast.LENGTH_SHORT).show();
+    }
 }

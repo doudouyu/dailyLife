@@ -20,5 +20,7 @@
     <dimen name="dp10">10dp</dimen>
     <dimen name="icon_image_size">60dp</dimen>
     <dimen name="dp200">200dp</dimen>
+    <dimen name="dp120">120dp</dimen>
+    <dimen name="dp32">32dp</dimen>
 
 </resources>

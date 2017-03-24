@@ -2,6 +2,7 @@ package life.bean.com.beanlife.activity;
 
 import android.content.Intent;
 import android.content.res.TypedArray;
+import android.graphics.drawable.Icon;
 import android.text.Editable;
 import android.text.InputType;
 import android.text.TextWatcher;
@@ -9,6 +10,7 @@ import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,6 +30,7 @@ public class NumberBindActivity extends BaseActivity {
     private EditText etCode;
     private TextView tvCode;
     private Intent intent;
+    private ImageView icon_delete;
 
     @Override
     public int getLayoutId() {
@@ -41,6 +44,7 @@ public class NumberBindActivity extends BaseActivity {
         etNumber = (EditText) findViewById(R.id.et_number);
         etCode = (EditText) findViewById(R.id.et_identifying_code);
         tvCode = (TextView) findViewById(R.id.tv_send_identifying_code);
+        icon_delete = (ImageView) findViewById(R.id.icon_delete);
         intent = getIntent();
 
     }
@@ -78,9 +82,18 @@ public class NumberBindActivity extends BaseActivity {
             if ("1".equals(intent.getStringExtra("type"))) {
                 if (s.length() > 0) {
                     tvCode.setVisibility(View.VISIBLE);
+                    icon_delete.setVisibility(View.VISIBLE);
                     tvCode.setOnClickListener(NumberBindActivity.this);
+                    icon_delete.setOnClickListener(NumberBindActivity.this);
+                    icon_delete.setOnLongClickListener(new View.OnLongClickListener() {
+                        @Override
+                        public boolean onLongClick(View v) {
+                            etNumber.setText("");
+                            return false;
+                        }
+                    });
                 }
-                etNumber.setMaxLines(1);
+//                etNumber.setMaxLines(1);
                 etNumber.setInputType(InputType.TYPE_CLASS_NUMBER);
                 if (s.length() > 11) {
                     etNumber.setText(s.subSequence(0, 11));
@@ -127,6 +140,13 @@ public class NumberBindActivity extends BaseActivity {
                     sentMessageToEmail();
                 }
                 break;
+            case R.id.icon_delete:
+                String etNumberText = etNumber.getText().toString();
+            if (etNumberText.length()>0)
+                etNumber.setText(etNumberText.substring(0,etNumberText.length()-1));
+            else
+                etNumber.setText("");
+            break;
         }
     }
 

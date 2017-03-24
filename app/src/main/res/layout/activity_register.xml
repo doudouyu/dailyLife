@@ -32,15 +32,33 @@
             android:padding="@dimen/dp10"
             android:textColorHint="@color/light_gray" />
 
-        <EditText
-            android:id="@+id/et_input_code"
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="@dimen/dp1"
-            android:background="@color/white"
-            android:hint="请输入验证码"
-            android:padding="@dimen/dp10"
-            android:textColorHint="@color/light_gray" />
+            android:background="@color/white">
+
+            <EditText
+                android:id="@+id/et_input_code"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:hint="请输入验证码"
+                android:padding="@dimen/dp10"
+                android:textColorHint="@color/light_gray" />
+
+            <TextView
+                android:id="@+id/tv_get_password"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/dp10"
+                android:background="@drawable/rectangle_pink"
+                android:padding="@dimen/dp3"
+                android:text="获取验证码" />
+        </RelativeLayout>
+
         <EditText
             android:id="@+id/et_input_password"
             android:layout_width="match_parent"
@@ -50,6 +68,7 @@
             android:hint="请输入密码"
             android:padding="@dimen/dp10"
             android:textColorHint="@color/light_gray" />
+
         <TextView
             android:id="@+id/login"
             android:layout_width="match_parent"
@@ -64,6 +83,7 @@
             android:textColor="@color/white" />
 
         <LinearLayout
+            android:id="@+id/ll_register"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -110,13 +130,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/ll_login"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="@dimen/title_left"
         android:background="@color/gray"
         android:gravity="center"
         android:paddingLeft="@dimen/title_top"
         android:paddingRight="@dimen/title_top"
-        android:layout_alignParentBottom="true"
         android:text="注册即代表同意微记账用户协议和隐私政策" />
 
 

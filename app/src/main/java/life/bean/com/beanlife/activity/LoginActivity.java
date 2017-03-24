@@ -39,6 +39,7 @@ public class LoginActivity extends BaseActivity implements Callback,
     private TextView tvForgetPasword;
     private ImageView ivWechat;
     private ImageView ivQq;
+    private TextView login;
 
     @Override
     public int getLayoutId() {
@@ -54,6 +55,7 @@ public class LoginActivity extends BaseActivity implements Callback,
         tvForgetPasword = (TextView) findViewById(R.id.tv_forget_password);
         ivWechat = (ImageView) findViewById(R.id.iv_wechat);
         ivQq = (ImageView) findViewById(R.id.iv_qq);
+        login = (TextView) findViewById(R.id.login);
     }
 
     @Override
@@ -63,6 +65,7 @@ public class LoginActivity extends BaseActivity implements Callback,
         tvForgetPasword.setOnClickListener(this);
         ivWechat.setOnClickListener(this);
         ivQq.setOnClickListener(this);
+        login.setOnClickListener(this);
     }
 
     @Override
@@ -88,6 +91,40 @@ public class LoginActivity extends BaseActivity implements Callback,
                 break;
             case R.id.iv_qq:
                 authorize(new QZone(this));
+                break;
+            case R.id.login:
+                String number= etNumber.getText().toString().trim();
+                String password = etPassword.getText().toString().trim();
+                if ("".equals(number)){
+                    showToast("账号不能为空");
+                    etNumber.setText("");
+                    return;
+                }
+                if ("".equals(password)){
+                    showToast("密码不能为空");
+                    etNumber.setText("");
+                    return;
+                }
+                //TODO 改成注册时存储的号码信息
+                if ("13608676132".equals(number)&&!"123".equals(password)){
+                    showToast("密码错误");
+                    etPassword.setText("");
+                    return;
+                }
+                if (!"13608676132".equals(number)&&"123".equals(password)){
+                    showToast("账号错误");
+                    etNumber.setText("");
+                    return;
+                }
+                if (!"13608676132".equals(number)&&!"123".equals(password)){
+                    showToast("账号密码错误");
+                    etNumber.setText("");
+                    return;
+                }
+                if ("13608676132".equals(number)&&"123".equals(password)){
+                    Intent intentMain = new Intent(context,MainActivity.class);
+                    startActivity(intentMain);
+                }
                 break;
             default:
                 break;
@@ -185,4 +222,5 @@ public class LoginActivity extends BaseActivity implements Callback,
             UIHandler.sendEmptyMessage(MSG_AUTH_CANCEL, this);
         }
     }
+
 }

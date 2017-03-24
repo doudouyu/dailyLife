@@ -12,11 +12,13 @@
         android:background="@color/white">
 
         <EditText
+            android:id="@+id/et_input_info"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@null"
             android:hint="@string/please_input" />
         <ImageView
+            android:id="@+id/voice_toggle"
             android:layout_width="@dimen/voice_image_size"
             android:layout_height="@dimen/voice_image_size"
             android:layout_alignParentRight="true"
@@ -24,12 +26,20 @@
             android:layout_marginRight="@dimen/title_left"
             android:layout_marginLeft="@dimen/title_left"
             android:src="@mipmap/gray_voice" />
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <LinearLayout
+            android:id="@+id/ll_pictures"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp120"
             android:layout_alignParentBottom="true"
-            android:layout_marginLeft="@dimen/title_left"
-            android:src="@mipmap/gray_add" />
+            android:orientation="horizontal">
+            <ImageView
+                android:id="@+id/add_pictures"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/title_left"
+                android:src="@mipmap/gray_add" />
+        </LinearLayout>
+
     </RelativeLayout>
 
     <TextView
@@ -50,6 +60,7 @@
         android:paddingTop="@dimen/title_top" />
 
     <TextView
+        android:id="@+id/submit_info"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:layout_marginLeft="@dimen/title_left"

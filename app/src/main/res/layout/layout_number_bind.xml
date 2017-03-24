@@ -9,14 +9,31 @@
         android:id="@id/title_view"
         layout="@layout/layout_title" />
 
-    <EditText
-        android:id="@+id/et_number"
+
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/title_left"
-        android:background="@color/white"
-        android:hint="请输入手机号"
-        android:padding="@dimen/title_left" />
+        android:layout_marginTop="@dimen/dp1"
+        android:background="@color/white">
+        <EditText
+            android:id="@+id/et_number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/title_left"
+            android:background="@color/white"
+            android:hint="请输入手机号"
+            android:padding="@dimen/title_left" />
+        <ImageView
+            android:id="@+id/icon_delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/title_left"
+            android:visibility="gone"
+            android:src="@mipmap/delete_hint"/>
+
+    </RelativeLayout>
    <RelativeLayout
        android:layout_width="match_parent"
        android:layout_height="wrap_content"

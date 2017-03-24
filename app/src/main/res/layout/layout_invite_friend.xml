@@ -58,6 +58,7 @@
             android:textSize="@dimen/detail_text_size_big14" />
 
         <EditText
+            android:id="@+id/et_number"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/title_left"
@@ -67,6 +68,7 @@
             android:textSize="@dimen/detail_text_size_big14" />
 
         <TextView
+            android:id="@+id/tv_send_message"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/content_left"

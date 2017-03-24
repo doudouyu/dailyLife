@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="remind1">请输入内容和金额</string>
     <string name="message_content">您的好友邀请您下载微记账app，一起联手记账吧！</string>
     <string name="check_code">654234</string>
 </resources>

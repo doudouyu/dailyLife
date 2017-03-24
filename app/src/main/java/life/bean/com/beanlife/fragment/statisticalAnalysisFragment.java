@@ -38,7 +38,8 @@ public class statisticalAnalysisFragment extends BaseFragment {
         pieChartIncome = (PieChart) view.findViewById(R.id.pie_chat_income);
         mBarData = mBarCharts.getBarData(14, 500);
         mBarCharts.showBarChart(barChartAll, mBarData);
-    }
+
+   }
 
     @Override
     public void initData() {
