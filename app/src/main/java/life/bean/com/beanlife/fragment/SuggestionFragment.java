@@ -6,13 +6,21 @@ import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
+import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Switch;
 import android.widget.TextView;
+
+import com.iflytek.cloud.RecognizerListener;
+import com.iflytek.cloud.RecognizerResult;
+import com.iflytek.cloud.SpeechConstant;
+import com.iflytek.cloud.SpeechError;
+import com.iflytek.cloud.SpeechRecognizer;
 
 import life.bean.com.beanlife.R;
 import life.bean.com.beanlife.activity.MainActivity;
@@ -29,6 +37,46 @@ public class SuggestionFragment extends BaseFragment {
     private TextView submit_info;
     private EditText etInputInfo;
     private LinearLayout ll_pictures;
+    private RecognizerListener mRecoListener = new RecognizerListener() {
+        //听写结果回调接口(返回Json格式结果，用户可参见附录12.1)；
+        //一般情况下会通过onResults接口多次返回结果，完整的识别内容是多次结果的累加；
+        //关于解析Json的代码可参见MscDemo中JsonParser类；
+        //isLast等于true时会话结束。
+        //音量值0~30
+        @Override
+        public void onVolumeChanged(int i, byte[] bytes) {
+
+        }
+
+        //开始录音
+        @Override
+        public void onBeginOfSpeech() {
+
+        }
+
+        //结束录音
+        @Override
+        public void onEndOfSpeech() {
+
+        }
+
+        @Override
+        public void onResult(RecognizerResult recognizerResult, boolean b) {
+
+        }
+
+        //会话发生错误回调接口
+        @Override
+        public void onError(SpeechError speechError) {
+
+        }
+
+        //扩展用接口
+        @Override
+        public void onEvent(int i, int i1, int i2, Bundle bundle) {
+
+        }
+    };
 
     @Override
     public int getLayoutId() {
@@ -55,6 +103,7 @@ public class SuggestionFragment extends BaseFragment {
         submit_info.setOnClickListener(this);
         addPictures.setOnClickListener(this);
     }
+
     //调用系统相册-选择图片
     private static final int IMAGE = 1;
 
@@ -73,7 +122,6 @@ public class SuggestionFragment extends BaseFragment {
                 Intent intent = new Intent(Intent.ACTION_PICK,
                         android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
                 startActivityForResult(intent, IMAGE);
-
                 break;
             default:
                 break;
@@ -83,7 +131,23 @@ public class SuggestionFragment extends BaseFragment {
     private void checkVoicePermission() {
         //有权限就弹出来一个对话框
         showToast("录音");
+
+        startRecord();
+        //todo 检查权限，成功获取权限后调用录音功能
     }
+
+    private void startRecord() {
+        //1.创建SpeechRecognizer对象，第二个参数：本地听写时传InitListener
+        SpeechRecognizer mIat = SpeechRecognizer.createRecognizer(context, null);
+//2.设置听写参数，详见《科大讯飞MSC API手册(Android)》SpeechConstant类
+        mIat.setParameter(SpeechConstant.DOMAIN, "iat");
+        mIat.setParameter(SpeechConstant.LANGUAGE, "zh_cn");
+        mIat.setParameter(SpeechConstant.ACCENT, "mandarin ");
+//3.开始听写
+        mIat.startListening(mRecoListener);
+    }
+
+
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -101,14 +165,14 @@ public class SuggestionFragment extends BaseFragment {
     }
 
     //加载图片
-    private void showImage(String imagePath){
+    private void showImage(String imagePath) {
         int childCount = ll_pictures.getChildCount();
 
-        if (childCount<=3){
+        if (childCount <= 3) {
             Bitmap bm = BitmapFactory.decodeFile(imagePath);
             final ImageView imageView = new ImageView(context);
             //给图片添加一个间隔
-            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(100,100);
+            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(100, 100);
             params.rightMargin = 10;
             params.leftMargin = 10;
             imageView.setLayoutParams(params);
@@ -118,13 +182,13 @@ public class SuggestionFragment extends BaseFragment {
                 public void onClick(View v) {
                     imageView.setVisibility(View.GONE);
                     ll_pictures.removeView(imageView);
-                    if (ll_pictures.getChildCount()<=3){
+                    if (ll_pictures.getChildCount() <= 3) {
                         addPictures.setVisibility(View.VISIBLE);
                     }
                 }
             });
-            ll_pictures.addView(imageView,childCount-1);
-            if (ll_pictures.getChildCount()>3){
+            ll_pictures.addView(imageView, childCount - 1);
+            if (ll_pictures.getChildCount() > 3) {
                 addPictures.setVisibility(View.GONE);
                 showToast("最多只能三张哦！");
             }
@@ -132,5 +196,36 @@ public class SuggestionFragment extends BaseFragment {
         }
     }
 
-
+//    private RecognizerListener mRecoListener = new RecognizerListener() {
+//        //听写结果回调接口(返回Json格式结果，用户可参见附录12.1)；
+//        //一般情况下会通过onResults接口多次返回结果，完整的识别内容是多次结果的累加；
+//        //关于解析Json的代码可参见MscDemo中JsonParser类；
+//        //isLast等于true时会话结束。
+//        public void onResult(RecognizerResult results, boolean isLast) {
+//            Log.d("Result:", results.getResultString());
+//        }
+//
+//        //会话发生错误回调接口
+//        public void onError(SpeechError error) {
+//            error.getPlainDescription(true) {
+//                //获取错误码描述
+//            }
+//        }
+//
+//        //开始录音
+//        public void onBeginOfSpeech() {
+//        }
+//
+//        //音量值0~30
+//        public void onVolumeChanged(int volume) {
+//        }
+//
+//        //结束录音
+//        public void onEndOfSpeech() {
+//        }
+//
+//        //扩展用接口
+//        public void onEvent(int eventType, int arg1, int arg2, Bundle obj) {
+//        }
+//    };
 }

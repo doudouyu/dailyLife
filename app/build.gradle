@@ -44,4 +44,5 @@ dependencies {
     //    compile 'de.hdodenhof:circleimageview:2.1.0'
     //    compile 'org.quanqi:mpandroidchart:1.7.5'
     compile files('libs/253_sms_sdk_lib_v_1.3_p.jar')
+    compile files('libs/Msc.jar')
 }

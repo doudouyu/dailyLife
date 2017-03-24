@@ -1,6 +1,7 @@
 package life.bean.com.beanlife.activity;
 
 import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.text.Editable;
@@ -38,6 +39,7 @@ public class NumberManageActivity extends BaseActivity {
     private TextView tvNumber;
     private TextView tv_name;
     private String userName;
+    private TextView tvNumber1;
 
     @Override
     public int getLayoutId() {
@@ -55,7 +57,7 @@ public class NumberManageActivity extends BaseActivity {
         rlQQ = (RelativeLayout) findViewById(R.id.rl_qq);
         rlWeChat = (RelativeLayout) findViewById(R.id.rl_we_chat);
         tv_name = (TextView) findViewById(R.id.tv_name);
-        userName = SharepreferenceUtils.getSharepreference(this, SpUtils.DAILY_LIFE,0, SpUtils.USER_NAME);
+        userName = SharepreferenceUtils.getSharepreference(this, SpUtils.DAILY_LIFE, 0, SpUtils.USER_NAME_STRING);
 
     }
 
@@ -82,13 +84,13 @@ public class NumberManageActivity extends BaseActivity {
                 showMyDialog("请输入昵称");
                 break;
             case R.id.rl_phone:
-                intent = new Intent(context,NumberBindActivity.class);
-                intent.putExtra("type","1");
+                intent = new Intent(context, NumberBindActivity.class);
+                intent.putExtra("type", "1");
                 startActivity(intent);
                 break;
             case R.id.rl_email:
-                intent = new Intent(context,NumberBindActivity.class);
-                intent.putExtra("type","2");
+                intent = new Intent(context, NumberBindActivity.class);
+                intent.putExtra("type", "2");
                 startActivity(intent);
                 break;
             case R.id.rl_qq:
@@ -107,59 +109,50 @@ public class NumberManageActivity extends BaseActivity {
     }
 
     private void showMyDialog(String name) {
+        final AlertDialog.Builder builder = new AlertDialog.Builder(NumberManageActivity.this);
+        final View viewDia = LayoutInflater.from(NumberManageActivity.this).inflate(R.layout.layout_dialog, null);
+        builder.setTitle("请输入昵称");
+        builder.setView(viewDia);
+        builder.setCancelable(false);
+        final AlertDialog dialog = builder.create();
+        TextView tvSure = (TextView) viewDia.findViewById(R.id.tv_sure);
+        tvNumber1 = (TextView) viewDia.findViewById(R.id.tv_number);
+        final EditText diaInput = (EditText) viewDia.findViewById(R.id.et_input_name);
+        diaInput.addTextChangedListener(new OnMyTextChangeListener());
+        if (diaInput.getText().toString().trim().length()<=10){
+            tvSure.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    String inputString = diaInput.getText().toString().trim();
+                    if (inputString.length() <= 0){
+                        Toast.makeText(context, "昵称不能为空", Toast.LENGTH_SHORT).show();
+                    }else if (inputString.length() <= 10) {
+                        tv_name.setText(inputString);
+                        SharepreferenceUtils.setSharepreference(context,SpUtils.DAILY_LIFE,0,SpUtils.USER_NAME_STRING,inputString);
+                        dialog.dismiss();
+                    } else if (inputString.length() > 10){
+                        diaInput.setText("");
+                        Toast.makeText(context, "不能超过十个字符", Toast.LENGTH_SHORT).show();
 
-        final AlertDialog dialog = new AlertDialog.Builder
-                (this).create();
-        View view = LayoutInflater.from(NumberManageActivity.this).inflate(R.layout.layout_dialog,null);
-        dialog.setView(view,0,0,0,0);
-        dialog.setTitle(name);
-        final EditText etName = (EditText) view.findViewById(R.id.et_input_name);
-//        tvSure = (TextView) view.findViewById(R.id.tv_sure);
-//        tvSure.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                String etNameText = etName.getText().toString().trim();
-//                if (!TextUtils.isEmpty(etNameText)&&etNameText.length()<=10){
-//                    dialog.dismiss();
-//                    SharepreferenceUtils.setSharepreference(context,SpUtils.DAILY_LIFE,0, SpUtils.USER_NAME,etNameText);
-//                }
-//            }
-//        });
-        tvNumber = (TextView) view.findViewById(R.id.tv_number);
-        etName.addTextChangedListener(new OnMyTextChangeListener());
+                    }
+                }
+            });
+        }
         dialog.show();
-        WindowManager.LayoutParams params =
-                dialog.getWindow().getAttributes();
-        params.width = 300;
-        params.height = 200 ;
-        dialog.getWindow().setAttributes(params);
-
     }
 
     private class OnMyTextChangeListener implements TextWatcher {
         @Override
         public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-            if (count>0){
 
-
-                tvSure.setOnClickListener(NumberManageActivity.this);
-                if (count<11){
-                    tvNumber.setText(count+"");
-                }else {
-                    tvNumber.setText(10+"");
-                }
-            }
         }
 
         @Override
         public void onTextChanged(CharSequence s, int start, int before, int count) {
-            if (count>0){
-                tvSure.setOnClickListener(NumberManageActivity.this);
-                if (count<11){
-                    tvNumber.setText(count+"");
-                }else {
-                    tvNumber.setText(10+"");
-                }
+            if (s.length()<=10){
+                tvNumber1.setText(s.length()+"");
+            }else {
+                tvNumber1.setText("10");
             }
         }
 

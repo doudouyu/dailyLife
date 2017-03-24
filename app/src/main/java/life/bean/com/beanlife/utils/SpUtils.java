@@ -9,4 +9,5 @@ public class SpUtils {
     public static final String DAILY_LIFE = "daily_life";
     public static final String USER_NAME = "user_name";
     public static final String USER_PASSWORD = "user_password";
+    public static final String USER_NAME_STRING = "user_name_string";
 }
