@@ -4,6 +4,7 @@
     android:layout_height="match_parent"
     android:background="@color/gray">
     <LinearLayout
+        android:id="@+id/ll_everyday_ring"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp60"
         android:orientation="horizontal"
@@ -24,6 +25,7 @@
             android:gravity="center_vertical"
             android:text="每日记账提醒"/>
         <TextView
+            android:id="@+id/tv_time"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="match_parent"
@@ -52,6 +54,7 @@
         android:scrollbars="none"
         android:divider="@null"></ListView>
     <LinearLayout
+        android:id="@+id/ll_add_ring"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp60"
         android:orientation="horizontal"

@@ -22,5 +22,6 @@
     <dimen name="dp200">200dp</dimen>
     <dimen name="dp120">120dp</dimen>
     <dimen name="dp32">32dp</dimen>
+    <dimen name="dp48">48dp</dimen>
 
 </resources>

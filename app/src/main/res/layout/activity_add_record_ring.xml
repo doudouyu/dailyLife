@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray"
+    android:orientation="vertical">
+
+    <include
+        android:id="@id/title_view"
+        layout="@layout/layout_title" />
+
+    <LinearLayout
+        android:id="@+id/ll_remind_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/title_top"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:padding="@dimen/dp10">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/title_top"
+            android:layout_weight="1"
+            android:padding="@dimen/dp3"
+            android:text="提醒名称"
+            android:textSize="@dimen/dp16" />
+
+        <TextView
+            android:id="@+id/tv_remind_name"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/title_image_size"
+            android:layout_marginRight="@dimen/content_left"
+            android:gravity="right"
+            android:padding="@dimen/dp3" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/title_top"
+            android:src="@mipmap/back_right" />
+    </LinearLayout>
+
+    <LinearLayout
+
+        android:id="@+id/ll_remind_date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp1"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:padding="@dimen/dp10">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/title_top"
+            android:layout_weight="1"
+            android:padding="@dimen/dp3"
+            android:text="提醒时间"
+            android:textSize="@dimen/dp16" />
+
+        <TextView
+            android:id="@+id/tv_remind_date"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/title_image_size"
+            android:layout_marginRight="@dimen/content_left"
+            android:gravity="right"
+            android:padding="@dimen/dp3" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/title_top"
+            android:src="@mipmap/back_right" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_remind_cycle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp1"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:padding="@dimen/dp10">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/title_top"
+            android:layout_weight="1"
+            android:padding="@dimen/dp3"
+            android:text="提醒周期"
+            android:textSize="@dimen/dp16" />
+
+        <TextView
+            android:id="@+id/tv_remind_cycle"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/title_image_size"
+            android:layout_marginRight="@dimen/content_left"
+            android:gravity="right"
+            android:padding="@dimen/dp3" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/title_top"
+            android:src="@mipmap/back_right" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_remind_died_line"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp1"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:padding="@dimen/dp10">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/title_top"
+            android:layout_weight="1"
+            android:padding="@dimen/dp3"
+            android:text="到期时间"
+            android:textSize="@dimen/dp16" />
+
+        <TextView
+            android:id="@+id/tv_remind_died_line"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/title_image_size"
+            android:layout_marginRight="@dimen/content_left"
+            android:gravity="right"
+            android:padding="@dimen/dp3" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/title_top"
+            android:src="@mipmap/back_right" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/login"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp48"
+        android:layout_marginLeft="@dimen/title_left"
+        android:layout_marginRight="@dimen/title_left"
+        android:layout_marginTop="@dimen/content_left"
+        android:background="@drawable/red_rectangle"
+        android:gravity="center"
+        android:text="保存"
+        android:textColor="@color/white"
+        android:textSize="@dimen/dp16" />
+</LinearLayout>
