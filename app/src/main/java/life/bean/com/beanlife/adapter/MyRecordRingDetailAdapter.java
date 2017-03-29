@@ -29,7 +29,7 @@ public class MyRecordRingDetailAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return list.size();
+        return list.size() == 0?0:list.size();
     }
 
     @Override
@@ -47,7 +47,7 @@ public class MyRecordRingDetailAdapter extends BaseAdapter {
         ViewHolder holder;
         if (convertView == null) {
             holder = new ViewHolder();
-            convertView = View.inflate(context, R.layout.layout_text_text_image, null);
+            convertView = View.inflate(context, R.layout.layout_image_text_text_image, null);
             holder.tv_item_name = (TextView) convertView.findViewById(R.id.tv_item_name);
             holder.tv_item_detail = (TextView) convertView.findViewById(R.id.tv_item_detail);
             convertView.setTag(holder);

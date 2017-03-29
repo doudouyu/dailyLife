@@ -147,7 +147,7 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/login"
+        android:id="@+id/tv_save"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp48"
         android:layout_marginLeft="@dimen/title_left"

@@ -13,6 +13,9 @@ import java.util.ArrayList;
 
 import life.bean.com.beanlife.R;
 import life.bean.com.beanlife.activity.AddRecordRingActivity;
+import life.bean.com.beanlife.adapter.MyRecordAdapter;
+import life.bean.com.beanlife.adapter.MyRecordRingDetailAdapter;
+import life.bean.com.beanlife.bean.RingDetailBean;
 
 /**
  * 作者 : bean on 2017/2/24/0024.
@@ -26,6 +29,12 @@ public class AccountRingFragment extends BaseFragment {
     private ArrayList<String> listTime = new ArrayList();
     private String textTime;
     private TextView tvTime;
+    private ArrayList<RingDetailBean> list = new ArrayList<>();
+    private MyRecordRingDetailAdapter adapter;
+    private String recordTime;
+    private String recordCycle;
+    private String recordName;
+    private String recordDate;
 
     @Override
     public int getLayoutId() {
@@ -42,7 +51,8 @@ public class AccountRingFragment extends BaseFragment {
 
     @Override
     public void initData() {
-
+        adapter = new MyRecordRingDetailAdapter(context,list);
+        tally_detail.setAdapter(adapter);
     }
 
     @Override
@@ -53,6 +63,13 @@ public class AccountRingFragment extends BaseFragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 //跳转一个界面
+                Intent intent = new Intent(context, AddRecordRingActivity.class);
+                intent.putExtra("remind_name",recordName);
+                intent.putExtra("remind_time",recordTime);
+                intent.putExtra("remind_cycle",recordCycle);
+                intent.putExtra("remind_date",recordDate);
+                intent.putExtra("position",position+"");
+                startActivityForResult(intent, 1);
             }
         });
     }
@@ -65,8 +82,8 @@ public class AccountRingFragment extends BaseFragment {
                 showSelectedDialog();
                 break;
             case R.id.ll_add_ring:
-                Intent intent = new Intent(context,AddRecordRingActivity.class);
-                startActivity(intent);
+                Intent intent = new Intent(context, AddRecordRingActivity.class);
+                startActivityForResult(intent, 0);
                 break;
 
             default:
@@ -103,5 +120,30 @@ public class AccountRingFragment extends BaseFragment {
             }
 
         }
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == 2){
+            if (requestCode == 0) {
+                recordName = data.getStringExtra("remind_name");
+                recordTime = data.getStringExtra("remind_time");
+                recordCycle = data.getStringExtra("remind_cycle");
+                recordDate = data.getStringExtra("remind_date");
+                list.add(new RingDetailBean(recordName, recordDate));
+                adapter.notifyDataSetChanged();
+            }else if (requestCode == 1){
+                recordName = data.getStringExtra("remind_name");
+                recordTime = data.getStringExtra("remind_time");
+                recordCycle = data.getStringExtra("remind_cycle");
+                recordDate = data.getStringExtra("remind_date");
+                String recordPosition = data.getStringExtra("position");
+                list.remove(list.get(Integer.parseInt(recordPosition)));
+                list.add(Integer.parseInt(recordPosition),new RingDetailBean(recordName, recordDate));
+                adapter.notifyDataSetChanged();
+            }
+        }
+
     }
 }

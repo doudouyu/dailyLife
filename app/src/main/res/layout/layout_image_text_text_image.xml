@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/dp1"
+    android:background="@color/white"
+    android:orientation="horizontal"
+    android:paddingBottom="@dimen/dp3"
+    android:paddingTop="@dimen/dp3">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="@dimen/dp32"
+        android:src="@mipmap/ring2" />
+
+    <TextView
+        android:id="@+id/tv_item_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/title_top"
+        android:layout_weight="1"
+        android:padding="@dimen/dp3"
+        android:text="账号管理"
+        android:textSize="@dimen/dp16" />
+
+    <TextView
+        android:id="@+id/tv_item_detail"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/title_image_size"
+        android:layout_marginRight="@dimen/content_left"
+        android:gravity="right"
+        android:padding="@dimen/dp3"
+        android:text="关闭" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/title_top"
+        android:src="@mipmap/back_right" />
+</LinearLayout>

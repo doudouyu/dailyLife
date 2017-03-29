@@ -7,9 +7,11 @@ android {
     defaultConfig {
         applicationId "life.bean.com.beanlife"
         minSdkVersion 16
-        targetSdkVersion 25
+        targetSdkVersion 23
         versionCode 1
         versionName "1.0"
+
+
     }
     buildTypes {
         release {
@@ -45,4 +47,5 @@ dependencies {
     //    compile 'org.quanqi:mpandroidchart:1.7.5'
     compile files('libs/253_sms_sdk_lib_v_1.3_p.jar')
     compile files('libs/Msc.jar')
+    compile 'com.prolificinteractive:material-calendarview:1.4.0'
 }
