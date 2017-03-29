@@ -86,7 +86,7 @@ public class MoneyServiceFragment extends BaseFragment {
 
     private void initLine() {
         LineWidth = width/fragments.size();
-        indicatorLine.setLayoutParams(new LinearLayout.LayoutParams(LineWidth,2));
+        indicatorLine.setLayoutParams(new LinearLayout.LayoutParams(LineWidth,5));
     }
 
     @Override

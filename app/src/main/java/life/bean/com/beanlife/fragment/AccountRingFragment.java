@@ -51,7 +51,7 @@ public class AccountRingFragment extends BaseFragment {
 
     @Override
     public void initData() {
-        adapter = new MyRecordRingDetailAdapter(context,list);
+        adapter = new MyRecordRingDetailAdapter(context, list);
         tally_detail.setAdapter(adapter);
     }
 
@@ -64,11 +64,12 @@ public class AccountRingFragment extends BaseFragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 //跳转一个界面
                 Intent intent = new Intent(context, AddRecordRingActivity.class);
-                intent.putExtra("remind_name",recordName);
-                intent.putExtra("remind_time",recordTime);
-                intent.putExtra("remind_cycle",recordCycle);
-                intent.putExtra("remind_date",recordDate);
-                intent.putExtra("position",position+"");
+                RingDetailBean bean = list.get(position);
+                intent.putExtra("remind_name", bean.getItemName());
+                intent.putExtra("remind_time", bean.getItemTime());
+                intent.putExtra("remind_cycle",bean.getItemCycle());
+                intent.putExtra("remind_date", bean.getItemDetail());
+                intent.putExtra("position", position + "");
                 startActivityForResult(intent, 1);
             }
         });
@@ -125,22 +126,18 @@ public class AccountRingFragment extends BaseFragment {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (resultCode == 2){
+        if (resultCode == 2) {
+            recordName = data.getStringExtra("remind_name");
+            recordTime = data.getStringExtra("remind_time");
+            recordCycle = data.getStringExtra("remind_cycle");
+            recordDate = data.getStringExtra("remind_date");
             if (requestCode == 0) {
-                recordName = data.getStringExtra("remind_name");
-                recordTime = data.getStringExtra("remind_time");
-                recordCycle = data.getStringExtra("remind_cycle");
-                recordDate = data.getStringExtra("remind_date");
-                list.add(new RingDetailBean(recordName, recordDate));
+                list.add(new RingDetailBean(recordName, recordDate,recordTime,recordCycle));
                 adapter.notifyDataSetChanged();
-            }else if (requestCode == 1){
-                recordName = data.getStringExtra("remind_name");
-                recordTime = data.getStringExtra("remind_time");
-                recordCycle = data.getStringExtra("remind_cycle");
-                recordDate = data.getStringExtra("remind_date");
+            } else if (requestCode == 1) {
                 String recordPosition = data.getStringExtra("position");
                 list.remove(list.get(Integer.parseInt(recordPosition)));
-                list.add(Integer.parseInt(recordPosition),new RingDetailBean(recordName, recordDate));
+                list.add(Integer.parseInt(recordPosition), new RingDetailBean(recordName, recordDate,recordTime,recordCycle));
                 adapter.notifyDataSetChanged();
             }
         }

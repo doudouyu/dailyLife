@@ -30,7 +30,6 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:text=""
-            android:padding="@dimen/dp2"
             android:textColor="@color/white"
             android:textSize="@dimen/dp24" />
 
@@ -40,9 +39,7 @@
             android:layout_height="0dp"
             android:layout_weight="2"
             android:text=""
-            android:padding="@dimen/dp2"
             android:textStyle="bold"
-            android:layout_marginTop="@dimen/title_top"
             android:textColor="@color/white"
             android:textSize="@dimen/dp48" />
 
@@ -52,8 +49,6 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:text=""
-            android:padding="@dimen/dp2"
-            android:layout_marginTop="@dimen/title_top"
             android:textColor="@color/white"
             android:textSize="@dimen/dp24" />
     </LinearLayout>
