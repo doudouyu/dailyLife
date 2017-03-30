@@ -52,10 +52,12 @@
             android:paddingBottom="@dimen/title_left"
             android:layout_marginLeft="@dimen/title_left"
             android:layout_marginRight="@dimen/title_left"
-            android:textColor="@color/gray"
+            android:textColor="@color/black"
             android:hint="@string/remind1"
+            android:textColorHint="@color/gray"
             android:gravity="center_horizontal"
             android:textSize="16dp"
+            android:text=""
             android:background="@drawable/rectangle"/>
 
         <TextView

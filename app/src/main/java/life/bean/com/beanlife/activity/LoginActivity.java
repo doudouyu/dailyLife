@@ -93,38 +93,38 @@ public class LoginActivity extends BaseActivity implements Callback,
                 authorize(new QZone(this));
                 break;
             case R.id.login:
-                String number= etNumber.getText().toString().trim();
-                String password = etPassword.getText().toString().trim();
-                if ("".equals(number)){
-                    showToast("账号不能为空");
-                    etNumber.setText("");
-                    return;
-                }
-                if ("".equals(password)){
-                    showToast("密码不能为空");
-                    etNumber.setText("");
-                    return;
-                }
-                //TODO 改成注册时存储的号码信息
-                if ("13608676132".equals(number)&&!"123".equals(password)){
-                    showToast("密码错误");
-                    etPassword.setText("");
-                    return;
-                }
-                if (!"13608676132".equals(number)&&"123".equals(password)){
-                    showToast("账号错误");
-                    etNumber.setText("");
-                    return;
-                }
-                if (!"13608676132".equals(number)&&!"123".equals(password)){
-                    showToast("账号密码错误");
-                    etNumber.setText("");
-                    return;
-                }
-                if ("13608676132".equals(number)&&"123".equals(password)){
+//                String number= etNumber.getText().toString().trim();
+//                String password = etPassword.getText().toString().trim();
+//                if ("".equals(number)){
+//                    showToast("账号不能为空");
+//                    etNumber.setText("");
+//                    return;
+//                }
+//                if ("".equals(password)){
+//                    showToast("密码不能为空");
+//                    etNumber.setText("");
+//                    return;
+//                }
+//                //TODO 改成注册时存储的号码信息
+//                if ("13608676132".equals(number)&&!"123".equals(password)){
+//                    showToast("密码错误");
+//                    etPassword.setText("");
+//                    return;
+//                }
+//                if (!"13608676132".equals(number)&&"123".equals(password)){
+//                    showToast("账号错误");
+//                    etNumber.setText("");
+//                    return;
+//                }
+//                if (!"13608676132".equals(number)&&!"123".equals(password)){
+//                    showToast("账号密码错误");
+//                    etNumber.setText("");
+//                    return;
+//                }
+//                if ("13608676132".equals(number)&&"123".equals(password)){
                     Intent intentMain = new Intent(context,MainActivity.class);
                     startActivity(intentMain);
-                }
+//                }
                 break;
             default:
                 break;

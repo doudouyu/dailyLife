@@ -3,6 +3,7 @@ package life.bean.com.beanlife.activity;
 import android.content.Intent;
 import android.view.View;
 //import android.widget.ImageView;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import life.bean.com.beanlife.R;
@@ -14,7 +15,7 @@ import life.bean.com.beanlife.R;
 public class TextEditorActivity extends BaseActivity {
 
     private TextView ivCommit;
-
+    private ImageView iv_back;
     @Override
     public int getLayoutId() {
         return R.layout.layout_text_edit;
@@ -23,12 +24,19 @@ public class TextEditorActivity extends BaseActivity {
     @Override
     public void initView() {
         ivCommit = (TextView) findViewById(R.id.tv_commit);
-
+        iv_back = (ImageView) findViewById(R.id.iv_back);
     }
 
     @Override
     public void initData() {
+
+    }
+
+    @Override
+    public void dealCommon() {
+        super.dealCommon();
         ivCommit.setOnClickListener(this);
+        iv_back.setOnClickListener(this);
     }
 
     @Override
@@ -40,6 +48,11 @@ public class TextEditorActivity extends BaseActivity {
             case R.id.tv_commit:
                 intent = new Intent(context, VoiceEditorActivity.class);
                 context.startActivity(intent);
+                break;
+            case R.id.iv_back:
+                finish();
+                break;
+            default:
                 break;
         }
     }

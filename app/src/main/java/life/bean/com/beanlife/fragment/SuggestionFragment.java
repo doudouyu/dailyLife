@@ -2,6 +2,7 @@ package life.bean.com.beanlife.fragment;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
@@ -13,6 +14,7 @@ import android.provider.MediaStore;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -28,6 +30,7 @@ import com.iflytek.cloud.SpeechRecognizer;
 import life.bean.com.beanlife.R;
 import life.bean.com.beanlife.activity.MainActivity;
 import life.bean.com.beanlife.activity.NumberManageActivity;
+import life.bean.com.beanlife.utils.DisplayUtil;
 import life.bean.com.beanlife.view.MyImageView;
 
 /**
@@ -81,6 +84,7 @@ public class SuggestionFragment extends BaseFragment {
 
         }
     };
+    private int width;
 
     @Override
     public int getLayoutId() {
@@ -89,6 +93,9 @@ public class SuggestionFragment extends BaseFragment {
 
     @Override
     public void initView(View view) {
+        WindowManager wm = (WindowManager) getContext()
+                .getSystemService(Context.WINDOW_SERVICE);
+        width = wm.getDefaultDisplay().getWidth();
         ivVoice = (ImageView) view.findViewById(R.id.voice_toggle);
         addPictures = (ImageView) view.findViewById(R.id.add_pictures);
         submit_info = (TextView) view.findViewById(R.id.submit_info);
@@ -122,6 +129,9 @@ public class SuggestionFragment extends BaseFragment {
                 showToast("提交");
                 break;
             case R.id.add_pictures:
+                //
+                //
+                //
                 // todo 写一个底部菜单来调用相册
                 Intent intent = new Intent(Intent.ACTION_PICK,
                         android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
@@ -189,12 +199,12 @@ public class SuggestionFragment extends BaseFragment {
     //加载图片
     private void showImage(String imagePath) {
         int childCount = ll_pictures.getChildCount();
-
         if (childCount <= 3) {
             Bitmap bm = BitmapFactory.decodeFile(imagePath);
             final ImageView imageView = new ImageView(context);
+            imageView.setScaleType(ImageView.ScaleType.FIT_XY);
             //给图片添加一个间隔
-            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(100, 100);
+            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(width/3-20,width/3-20);
             params.rightMargin = 10;
             params.leftMargin = 10;
             imageView.setLayoutParams(params);

@@ -64,6 +64,8 @@
         <activity android:name=".activity.RegisterActivity"/>
         <activity android:name=".activity.UpdatePasswordActivity"/>
         <activity android:name=".activity.AddRecordRingActivity"/>
+        <activity android:name=".activity.CalendarActivity"/>
+        <activity android:name=".activity.AddRememberActivity"/>
         <activity
             android:name="com.mob.tools.MobUIShell"
             android:theme="@android:style/Theme.Translucent.NoTitleBar"

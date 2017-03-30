@@ -1,20 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
     <TextView
         android:id="@+id/tv_week"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text=""
         android:background="@color/red"
-        android:padding="@dimen/dp2"
-        android:textColor="@color/white"
         android:gravity="center"
+        android:padding="@dimen/dp2"
+        android:text=""
+        android:textColor="@color/white"
         android:textSize="@dimen/dp24" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -39,9 +40,9 @@
             android:layout_height="0dp"
             android:layout_weight="2"
             android:text=""
-            android:textStyle="bold"
             android:textColor="@color/white"
-            android:textSize="@dimen/dp48" />
+            android:textSize="@dimen/dp48"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/tv_year"
@@ -52,33 +53,36 @@
             android:textColor="@color/white"
             android:textSize="@dimen/dp24" />
     </LinearLayout>
+
     <com.prolificinteractive.materialcalendarview.MaterialCalendarView
         android:id="@+id/calendarView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:mcv_showOtherDates="all"
         app:mcv_selectionColor="#00F"
-        />
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:gravity="right"
-    android:padding="@dimen/dp10"
-    android:orientation="horizontal">
-    <TextView
-        android:id="@+id/tv_cancel"
-        android:layout_width="wrap_content"
+        app:mcv_showOtherDates="all" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="取消"
-        android:textColor="@color/pink"/>
-    <TextView
-        android:id="@+id/tv_sure"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="确定"
-        android:layout_marginLeft="@dimen/dp10"
-        android:layout_marginRight="@dimen/dp10"
-        android:textColor="@color/pink"/>
-</LinearLayout>
+        android:gravity="right"
+        android:orientation="horizontal"
+        android:padding="@dimen/dp10">
+
+        <TextView
+            android:id="@+id/tv_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="取消"
+            android:textColor="@color/pink" />
+
+        <TextView
+            android:id="@+id/tv_sure"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp10"
+            android:layout_marginRight="@dimen/dp10"
+            android:text="确定"
+            android:textColor="@color/pink" />
+    </LinearLayout>
 
 </LinearLayout>
