@@ -29,17 +29,17 @@ public class PayFragment extends BaseFragment{
     }
 
     private void initList() {
-        list.add(new CategoryInfo(R.mipmap.red_contact,"餐饮食品"));
-        list.add(new CategoryInfo(R.mipmap.red_contact,"衣服饰品"));
-        list.add(new CategoryInfo(R.mipmap.red_contact,"居家生活"));
-        list.add(new CategoryInfo(R.mipmap.red_contact,"行车交通"));
-        list.add(new CategoryInfo(R.mipmap.red_contact,"育儿"));
-        list.add(new CategoryInfo(R.mipmap.red_contact,"休闲娱乐"));
-        list.add(new CategoryInfo(R.mipmap.red_contact,"文化教育"));
-        list.add(new CategoryInfo(R.mipmap.red_contact,"健康医疗"));
-        list.add(new CategoryInfo(R.mipmap.red_contact,"投资支出"));
-        list.add(new CategoryInfo(R.mipmap.red_contact,"其他支出"));
-        list.add(new CategoryInfo(R.mipmap.red_contact,"设置"));
+        list.add(new CategoryInfo(R.mipmap.voice,"餐饮食品"));
+        list.add(new CategoryInfo(R.mipmap.voice,"衣服饰品"));
+        list.add(new CategoryInfo(R.mipmap.voice,"居家生活"));
+        list.add(new CategoryInfo(R.mipmap.voice,"行车交通"));
+        list.add(new CategoryInfo(R.mipmap.voice,"育儿"));
+        list.add(new CategoryInfo(R.mipmap.voice,"休闲娱乐"));
+        list.add(new CategoryInfo(R.mipmap.voice,"文化教育"));
+        list.add(new CategoryInfo(R.mipmap.voice,"健康医疗"));
+        list.add(new CategoryInfo(R.mipmap.voice,"投资支出"));
+        list.add(new CategoryInfo(R.mipmap.voice,"其他支出"));
+        list.add(new CategoryInfo(R.mipmap.voice,"设置"));
     }
 
     @Override

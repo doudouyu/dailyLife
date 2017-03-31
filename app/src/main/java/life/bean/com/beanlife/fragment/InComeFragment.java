@@ -25,14 +25,14 @@ public class InComeFragment extends BaseFragment {
     public void initView(View view) {
         initList();
         GridView gv_category = (GridView) view.findViewById(R.id.gv_category);
-        gv_category.setAdapter(new MyGridViewAdapter(context,list));
+        gv_category.setAdapter(new MyGridViewAdapter(context, list));
     }
 
     private void initList() {
-        list.add(new CategoryInfo(R.mipmap.red_contact,"餐饮食品"));
-        list.add(new CategoryInfo(R.mipmap.red_contact,"衣服饰品"));
-        list.add(new CategoryInfo(R.mipmap.red_contact,"居家生活"));
-        list.add(new CategoryInfo(R.mipmap.red_contact,"行车交通"));
+        list.add(new CategoryInfo(R.mipmap.voice, "餐饮食品"));
+        list.add(new CategoryInfo(R.mipmap.voice, "衣服饰品"));
+        list.add(new CategoryInfo(R.mipmap.voice, "居家生活"));
+        list.add(new CategoryInfo(R.mipmap.voice, "行车交通"));
 
     }
 
