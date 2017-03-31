@@ -24,9 +24,10 @@ public class NoticeActivity extends BaseActivity{
 
     @Override
     public void initView() {
-        webViewClient = new MyWebViewClient();
+
         Common.iconId = 2;
         Common.titleSearchId = 1;
+        webViewClient = new MyWebViewClient();
         styleWebView = (WebView) findViewById(R.id.notice_web_view);
         styleWebView.getSettings().setJavaScriptEnabled(true);
         styleWebView.getSettings().setSupportZoom(true); // 支持缩放(适配到当前屏幕)
@@ -51,13 +52,11 @@ public class NoticeActivity extends BaseActivity{
 
         @Override
         public void onPageFinished(WebView view, String url) {
-            styleWebView.scrollTo(0, 1000);
             super.onPageFinished(view, url);
         }
 
         @Override
         public void onPageStarted(WebView view, String url, Bitmap favicon) {
-            styleWebView.scrollTo(0, 1000);
             super.onPageStarted(view, url, favicon);
         }
     }
