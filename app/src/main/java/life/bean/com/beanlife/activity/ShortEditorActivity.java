@@ -71,6 +71,7 @@ public class ShortEditorActivity extends BaseActivity {
     private ImageView ivBack;
     private TextView expend;
     private TextView inCome;
+    private TextView tv_save;
 
     @Override
     public int getLayoutId() {
@@ -96,6 +97,8 @@ public class ShortEditorActivity extends BaseActivity {
         ivBack = (ImageView) findViewById(R.id.iv_back);
         expend = (TextView) findViewById(R.id.expend);
         inCome = (TextView) findViewById(R.id.income);
+        //底部
+        tv_save = (TextView) findViewById(R.id.tv_save);
     }
 
     @Override
@@ -120,12 +123,18 @@ public class ShortEditorActivity extends BaseActivity {
         expend.setOnClickListener(this);
         inCome.setOnClickListener(this);
         vp_category.addOnPageChangeListener(new OnMyPageChangeListener());
+        tv_save.setOnClickListener(this);
     }
 
     @Override
     public void onInnerClick(View v) {
         super.onInnerClick(v);
         switch (v.getId()) {
+            case R.id.tv_save:
+                //// TODO: 2017/3/31/0031 提交数据至服务器
+                showToast("提交成功");
+                finish();
+                break;
             case R.id.iv_back:
                 finish();
                 break;
@@ -370,6 +379,14 @@ public class ShortEditorActivity extends BaseActivity {
      * 弹出来自定义键盘
      */
     private void showKeyBord() {
+    }
+
+    public void setIvIcon(Integer icon) {
+        iv_healthy.setImageResource(icon);
+    }
+
+    public void setIvText(String name) {
+        tv_healthy.setText(name);
     }
 
     private class OnMyPageChangeListener implements ViewPager.OnPageChangeListener {
