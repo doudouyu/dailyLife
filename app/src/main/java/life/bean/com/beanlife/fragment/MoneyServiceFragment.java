@@ -44,8 +44,7 @@ public class MoneyServiceFragment extends BaseFragment {
 
         pager = (ViewPager) view.findViewById(R.id.money_service_item);
         makeMoney = (TextView) view.findViewById(R.id.make_money);
-        borrowMoney = (TextView) view.
-                findViewById(R.id.borrow_money);
+        borrowMoney = (TextView) view.findViewById(R.id.borrow_money);
         creditCard = (TextView) view.findViewById(R.id.credit_card);
         indicatorLine = view.findViewById(R.id.indicator_line);
     }
@@ -59,13 +58,11 @@ public class MoneyServiceFragment extends BaseFragment {
 
     @Override
     public void initData() {
-
-        fragments.add(new MakeMoneyFragment());
-        fragments.add(new BorrowMoneyFragment());
-        fragments.add(new CreditCardFragment());
-
+        if (fragments.size() <= 0) {
+            initFragments();
+        }
         initLine();
-        pager.setAdapter(new MyPagerAdapter(getFragmentManager(),fragments));
+        pager.setAdapter(new MyPagerAdapter(getFragmentManager(), fragments));
         pager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
@@ -74,7 +71,7 @@ public class MoneyServiceFragment extends BaseFragment {
 
             @Override
             public void onPageSelected(int position) {
-                initRightAnim(width/(fragments.size())*position);
+                initRightAnim(width / (fragments.size()) * position);
             }
 
             @Override
@@ -84,9 +81,15 @@ public class MoneyServiceFragment extends BaseFragment {
         });
     }
 
+    private void initFragments() {
+        fragments.add(new MakeMoneyFragment());
+        fragments.add(new BorrowMoneyFragment());
+        fragments.add(new CreditCardFragment());
+    }
+
     private void initLine() {
-        LineWidth = width/fragments.size();
-        indicatorLine.setLayoutParams(new LinearLayout.LayoutParams(LineWidth,5));
+        LineWidth = width / fragments.size();
+        indicatorLine.setLayoutParams(new LinearLayout.LayoutParams(LineWidth, 5));
     }
 
     @Override
@@ -99,18 +102,20 @@ public class MoneyServiceFragment extends BaseFragment {
     @Override
     public void onInnerClick(View v) {
         super.onInnerClick(v);
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.make_money:
                 pager.setCurrentItem(0);
                 initRightAnim(0);
                 break;
             case R.id.borrow_money:
                 pager.setCurrentItem(1);
-                initRightAnim(width/(fragments.size()));
+                initRightAnim(width / (fragments.size()));
                 break;
             case R.id.credit_card:
-                initRightAnim(width/(fragments.size())*2);
+                initRightAnim(width / (fragments.size()) * 2);
                 pager.setCurrentItem(2);
+
+
                 break;
             default:
                 break;

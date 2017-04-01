@@ -28,7 +28,7 @@ public class MyBankCardAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return 8;
+        return list.size();
     }
 
     @Override
@@ -54,6 +54,9 @@ public class MyBankCardAdapter extends BaseAdapter {
         }else {
             holder = (BankCardHolder) convertView.getTag();
         }
+        holder.ivIcon.setImageResource(list.get(position).getIcon());
+        holder.tvBankName.setText(list.get(position).getBankName()+"");
+        holder.tvCardNumber.setText(list.get(position).getCardId()+"");
         return convertView;
     }
 

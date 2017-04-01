@@ -5,15 +5,21 @@ package life.bean.com.beanlife.bean;
  * 注释 :银行卡信息
  */
 public class BankCardBean {
-    private String icon;
+    private Integer icon;
     private String bankName;
     private String cardId;
 
-    public String getIcon() {
+    public BankCardBean(Integer icon, String bankName, String cardId) {
+        this.icon = icon;
+        this.bankName = bankName;
+        this.cardId = cardId;
+    }
+
+    public Integer getIcon() {
         return icon;
     }
 
-    public void setIcon(String icon) {
+    public void setIcon(Integer icon) {
         this.icon = icon;
     }
 

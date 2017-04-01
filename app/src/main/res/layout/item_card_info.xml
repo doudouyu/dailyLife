@@ -3,12 +3,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="@dimen/title_top"
+    android:padding="@dimen/title_left"
     android:background="@drawable/rectangle">
 
     <ImageView
         android:id="@+id/iv_bank_icon"
         android:layout_width="@dimen/title_image_size"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/title_image_size"
         android:layout_alignParentLeft="true"
         android:layout_centerVertical="true"
         android:layout_marginLeft="@dimen/content_left"

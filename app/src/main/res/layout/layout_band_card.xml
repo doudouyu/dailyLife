@@ -10,23 +10,23 @@
         android:layout_height="@dimen/dp60"
         android:background="@color/pink"
         android:gravity="center">
-
         <LinearLayout
+            android:layout_centerInParent="true"
             android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:layout_gravity="center"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
+            android:layout_height="wrap_content"
+            android:background="@drawable/rectangle_white"
+            android:gravity="center"
+            android:padding="@dimen/dp2">
 
             <TextView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:paddingLeft="@dimen/title_top"
-                android:paddingRight="@dimen/title_top"
-                android:background="@drawable/white_left_rectangle"
-                android:gravity="right|center_vertical"
-                android:text="@string/debit_card" />
+                android:id="@+id/expend"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dp2"
+                android:gravity="center_vertical"
+                android:text="储蓄卡"
+                android:textColor="@color/white"
+                android:textSize="@dimen/dp16" />
 
             <View
                 android:layout_width="@dimen/dp2"
@@ -34,14 +34,15 @@
                 android:background="@color/white" />
 
             <TextView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:paddingLeft="@dimen/title_top"
-                android:paddingRight="@dimen/title_top"
-                android:background="@drawable/white_right_rectangle"
-                android:gravity="left|center_vertical"
-                android:text="@string/credit_card" />
+                android:id="@+id/income"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dp2"
+                android:gravity="center_vertical"
+                android:text="信用卡"
+                android:textColor="@color/white"
+                android:textSize="@dimen/dp16" />
+
         </LinearLayout>
     </LinearLayout>
 
