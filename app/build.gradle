@@ -10,6 +10,7 @@ android {
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
 
 
     }
@@ -41,11 +42,15 @@ dependencies {
     compile files('libs/ShareSDK-Wechat-Core-2.8.1.jar')
     compile files('libs/ShareSDK-Wechat-Favorite-2.8.1.jar')
     compile files('libs/ShareSDK-Wechat-Moments-2.8.1.jar')
-    compile 'com.github.PhilJay:MPAndroidChart:v2.1.4'
     //图表
+    compile 'com.github.PhilJay:MPAndroidChart:v2.1.4'
     //    compile 'de.hdodenhof:circleimageview:2.1.0'
-    //    compile 'org.quanqi:mpandroidchart:1.7.5'
-    compile files('libs/253_sms_sdk_lib_v_1.3_p.jar')
-    compile files('libs/Msc.jar')
+
+//    compile files('libs/253_sms_sdk_lib_v_1.3_p.jar')
+//    compile files('libs/Msc.jar')
+    //日历控件
     compile 'com.prolificinteractive:material-calendarview:1.4.0'
+    //二维码的扫描
+//    compile files('libs/ZxingScanner.jar')
+    compile 'com.android.support:multidex:1.0.1'
 }

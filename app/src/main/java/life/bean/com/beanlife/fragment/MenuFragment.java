@@ -1,6 +1,5 @@
 package life.bean.com.beanlife.fragment;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.util.Log;
 import android.view.View;
@@ -10,8 +9,6 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
-import cn.sharesdk.framework.ShareSDK;
-import cn.sharesdk.onekeyshare.OnekeyShare;
 import life.bean.com.beanlife.R;
 import life.bean.com.beanlife.activity.MainActivity;
 import life.bean.com.beanlife.activity.NoticeActivity;
@@ -44,7 +41,7 @@ public class MenuFragment extends BaseFragment {
 
     @Override
     public void initView(View view) {
-       initList();
+        initList();
         Log.i("list", list.size() + "");
         menu = (ListView) view.findViewById(R.id.menu_detail);
         ivIcon = (ImageView) view.findViewById(R.id.icon);
@@ -79,10 +76,10 @@ public class MenuFragment extends BaseFragment {
         ivSetting.setOnClickListener(this);
     }
 
-    public String  getTitleText(int position) {
-        if (list.size()<=0){
+    public String getTitleText(int position) {
+        if (list.size() <= 0) {
             initList();
-            if(titleText==null){
+            if (titleText == null) {
                 titleText = list.get(position).getTitle();
             }
         }
@@ -126,8 +123,6 @@ public class MenuFragment extends BaseFragment {
                 startActivity(intent);
                 break;
             case R.id.scan:
-                intent = new Intent(context, NoticeActivity.class);
-                startActivity(intent);
                 break;
             case R.id.setting:
                 intent = new Intent(context, SettingActivity.class);

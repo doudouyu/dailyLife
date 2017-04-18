@@ -1,14 +1,17 @@
 package life.bean.com.beanlife.activity;
 
-import android.content.Intent;
+import android.os.Handler.Callback;
 import android.os.Message;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.mob.tools.utils.UIHandler;
+
+import java.util.HashMap;
 
 import cn.sharesdk.framework.Platform;
 import cn.sharesdk.framework.PlatformActionListener;
@@ -16,23 +19,23 @@ import cn.sharesdk.framework.ShareSDK;
 import cn.sharesdk.tencent.qzone.QZone;
 import cn.sharesdk.wechat.friends.Wechat;
 import life.bean.com.beanlife.R;
-
-import android.os.Handler.Callback;
-import android.widget.Toast;
-
-import java.util.HashMap;
+import life.bean.com.beanlife.presenter.ILoginPresenter;
+import life.bean.com.beanlife.entitybiz.UserBean;
+import life.bean.com.beanlife.utils.IntentUtils;
+import life.bean.com.beanlife.view.ILoginView;
 
 /**
  * 作者 : bean on 2017/3/3/0003.
  * 注释 :
  */
-public class LoginActivity extends BaseActivity implements Callback,
-        PlatformActionListener {
+public class Login2Activity extends BaseActivity implements Callback,
+        PlatformActionListener, ILoginView {
     private static final int MSG_USERID_FOUND = 1;
     private static final int MSG_LOGIN = 2;
     private static final int MSG_AUTH_CANCEL = 3;
     private static final int MSG_AUTH_ERROR = 4;
     private static final int MSG_AUTH_COMPLETE = 5;
+    private ILoginPresenter iLoginPresenter = new ILoginPresenter(this);
     private EditText etNumber;
     private EditText etPassword;
     private TextView tvRegister;
@@ -44,7 +47,7 @@ public class LoginActivity extends BaseActivity implements Callback,
     @Override
     public int getLayoutId() {
         return R.layout.activity_login;
-}
+    }
 
     @Override
     public void initView() {
@@ -76,15 +79,13 @@ public class LoginActivity extends BaseActivity implements Callback,
     @Override
     public void onInnerClick(View v) {
         super.onInnerClick(v);
-        Intent intent;
         switch (v.getId()) {
             case R.id.tv_register:
-                intent = new Intent(context, RegisterActivity.class);
-                startActivity(intent);
+                iLoginPresenter.register();
                 break;
             case R.id.tv_forget_password:
-                intent = new Intent(context, UpdatePasswordActivity.class);
-                startActivity(intent);
+                iLoginPresenter.updatePassword();
+
                 break;
             case R.id.iv_wechat:
                 authorize(new Wechat(this));
@@ -93,38 +94,37 @@ public class LoginActivity extends BaseActivity implements Callback,
                 authorize(new QZone(this));
                 break;
             case R.id.login:
-//                String number= etNumber.getText().toString().trim();
-//                String password = etPassword.getText().toString().trim();
-//                if ("".equals(number)){
-//                    showToast("账号不能为空");
-//                    etNumber.setText("");
-//                    return;
-//                }
-//                if ("".equals(password)){
-//                    showToast("密码不能为空");
-//                    etNumber.setText("");
-//                    return;
-//                }
-//                //TODO 改成注册时存储的号码信息
-//                if ("13608676132".equals(number)&&!"123".equals(password)){
+                if ("".equals(getName())){
+                    showToast("账号不能为空");
+                    etNumber.setText("");
+                    return;
+                }
+                if ("".equals(getPassword())){
+                    showToast("密码不能为空");
+                    etNumber.setText("");
+                    return;
+                }
+                //TODO 改成注册时存储的号码信息
+//                if ("13608676132".equals(getName())&&!"123".equals(getPassword())){
 //                    showToast("密码错误");
 //                    etPassword.setText("");
 //                    return;
 //                }
-//                if (!"13608676132".equals(number)&&"123".equals(password)){
+//                if (!"13608676132".equals(getName())&&"123".equals(getPassword())){
 //                    showToast("账号错误");
 //                    etNumber.setText("");
 //                    return;
 //                }
-//                if (!"13608676132".equals(number)&&!"123".equals(password)){
+//                if (!"13608676132".equals(getName())&&!"123".equals(getPassword())){
 //                    showToast("账号密码错误");
 //                    etNumber.setText("");
 //                    return;
 //                }
-//                if ("13608676132".equals(number)&&"123".equals(password)){
-                    Intent intentMain = new Intent(context,MainActivity.class);
-                    startActivity(intentMain);
+//                if ("13608676132".equals(getName())&&"123".equals(getPassword())){
+//                    Intent intentMain = new Intent(context,MainActivity.class);
+//                    startActivity(intentMain);
 //                }
+                iLoginPresenter.login();
                 break;
             default:
                 break;
@@ -170,8 +170,7 @@ public class LoginActivity extends BaseActivity implements Callback,
                 String text = getString(R.string.logining, msg.obj);
                 Toast.makeText(this, text, Toast.LENGTH_SHORT).show();
                 System.out.println("---------------");
-                Intent intent = new Intent(context,MainActivity.class);
-                startActivity(intent);
+                iLoginPresenter.login();
 //				Builder builder = new Builder(this);
 //				builder.setTitle(R.string.if_register_needed);
 //				builder.setMessage(R.string.after_auth);
@@ -192,8 +191,7 @@ public class LoginActivity extends BaseActivity implements Callback,
             case MSG_AUTH_COMPLETE: {
                 Toast.makeText(this, R.string.auth_complete, Toast.LENGTH_SHORT).show();
                 System.out.println("--------MSG_AUTH_COMPLETE-------");
-                Intent intent = new Intent(context,MainActivity.class);
-                startActivity(intent);
+                iLoginPresenter.login();
             }
             break;
         }
@@ -223,4 +221,24 @@ public class LoginActivity extends BaseActivity implements Callback,
         }
     }
 
+    @Override
+    public String getName() {
+        return etNumber.getText().toString().trim();
+    }
+
+    @Override
+    public String getPassword() {
+        return etPassword.getText().toString().trim();
+    }
+
+    @Override
+    public void toMain(UserBean bean) {
+        showToast("success"+"姓名"+bean.getUsername()+"密码"+bean.getPassWord());
+        IntentUtils.startActivity(MainActivity.class);
+    }
+
+    @Override
+    public void loginFailed() {
+        showToast("failed");
+    }
 }

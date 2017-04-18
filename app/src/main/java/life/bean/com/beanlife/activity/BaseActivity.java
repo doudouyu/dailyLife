@@ -82,6 +82,7 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
 
     public abstract void initView();
 
+
     /**
      * 初始化数据
      */
@@ -115,6 +116,11 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
 
     public void showToast(String toastDetail) {
         Toast.makeText(this, toastDetail, Toast.LENGTH_SHORT).show();
+    }
+
+    public static Context getContextInstance() {
+
+        return context;
     }
 
 //    public static void requestRuntimePermission(String[] permissions, PermissionRequestListener listener) {
