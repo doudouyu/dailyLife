@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bean="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include
+        android:id="@id/title_view"
+        layout="@layout/layout_title" />
+    <life.bean.com.beanlife.view.MyTextView
+        android:id="@+id/common_problem"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp48"
+        android:layout_marginTop="@dimen/dp1"
+        android:background="@color/white"
+        android:paddingBottom="@dimen/dp3"
+        bean:beanText= "关于我们">
+    </life.bean.com.beanlife.view.MyTextView>
+    <life.bean.com.beanlife.view.MyTextView
+        android:id="@+id/check_update"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp48"
+        android:layout_marginTop="@dimen/dp1"
+        android:background="@color/white"
+        android:paddingBottom="@dimen/dp3"
+        bean:beanText= "检测更新">
+    </life.bean.com.beanlife.view.MyTextView>
+    <life.bean.com.beanlife.view.MyTextView
+        android:id="@+id/recommend_friend"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp48"
+        android:layout_marginTop="@dimen/dp1"
+        android:background="@color/white"
+        android:paddingBottom="@dimen/dp3"
+        bean:beanText= "推荐给好友">
+    </life.bean.com.beanlife.view.MyTextView>
+    <life.bean.com.beanlife.view.MyTextView
+        android:id="@+id/about_us"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp48"
+        android:layout_marginTop="@dimen/dp1"
+        android:background="@color/white"
+        android:paddingBottom="@dimen/dp3"
+        bean:beanText= "关于微记账">
+    </life.bean.com.beanlife.view.MyTextView>
+</LinearLayout>

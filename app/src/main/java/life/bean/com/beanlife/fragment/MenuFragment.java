@@ -13,6 +13,7 @@ import life.bean.com.beanlife.R;
 import life.bean.com.beanlife.activity.MainActivity;
 import life.bean.com.beanlife.activity.NoticeActivity;
 import life.bean.com.beanlife.activity.NumberManageActivity;
+import life.bean.com.beanlife.activity.Setting2Activity;
 import life.bean.com.beanlife.activity.SettingActivity;
 import life.bean.com.beanlife.adapter.MyMenuAdapter;
 import life.bean.com.beanlife.bean.MenuInfo;
@@ -125,7 +126,7 @@ public class MenuFragment extends BaseFragment {
             case R.id.scan:
                 break;
             case R.id.setting:
-                intent = new Intent(context, SettingActivity.class);
+                intent = new Intent(context, Setting2Activity.class);
                 startActivity(intent);
                 break;
             default:

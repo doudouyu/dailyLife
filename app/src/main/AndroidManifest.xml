@@ -55,9 +55,9 @@
         <activity android:name=".activity.InviteFriendActivity"/>
         <activity android:name=".activity.NumberManageActivity"/>
         <activity android:name=".activity.NumberBindActivity"/>
-        <activity android:name=".activity.SettingActivity"/>
+        <activity android:name=".activity.Setting2Activity"/>
         <activity android:name=".activity.SuggestionActivity"/>
-        <activity android:name=".activity.AboutUsActivity"/>
+        <activity android:name=".activity.AboutUs2Activity"/>
         <activity android:name=".activity.AboutUsDetailActivity"/>
         <activity android:name=".activity.NoticeActivity"/>
         <activity android:name=".activity.MainActivity"/>

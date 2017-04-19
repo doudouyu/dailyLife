@@ -8,6 +8,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import life.bean.com.beanlife.R;
+import life.bean.com.beanlife.view.MyTextView;
 
 /**
  * 作者 : bean on 2017/3/2/0002.
@@ -15,8 +16,8 @@ import life.bean.com.beanlife.R;
  */
 public class AboutRecordFragment extends BaseFragment {
 
-    private LinearLayout ll_privacy_policy;
-    private LinearLayout ll_user_agreement;
+    private MyTextView ll_privacy_policy;
+    private MyTextView ll_user_agreement;
     private TextView tv_version;
 
     @Override
@@ -26,8 +27,8 @@ public class AboutRecordFragment extends BaseFragment {
 
     @Override
     public void initView(View view) {
-        ll_privacy_policy = (LinearLayout) view.findViewById(R.id.ll_privacy_policy);
-        ll_user_agreement = (LinearLayout) view.findViewById(R.id.ll_user_agreement);
+        ll_privacy_policy = (MyTextView) view.findViewById(R.id.ll_privacy_policy);
+        ll_user_agreement = (MyTextView) view.findViewById(R.id.ll_user_agreement);
         tv_version = (TextView) view.findViewById(R.id.tv_version);
         ll_privacy_policy.setOnClickListener(this);
         ll_user_agreement.setOnClickListener(this);

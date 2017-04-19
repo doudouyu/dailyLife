@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:bean="http://schemas.android.com/apk/res-auto"
     android:background="@color/gray"
     android:orientation="vertical">
 
@@ -35,59 +36,24 @@
         android:layout_marginTop="@dimen/title_left"
         android:layout_weight="3"
         android:orientation="vertical">
-
-        <LinearLayout
+        <life.bean.com.beanlife.view.MyTextView
             android:id="@+id/ll_privacy_policy"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/dp48"
             android:layout_marginTop="@dimen/dp1"
             android:background="@color/white"
-            android:orientation="horizontal"
             android:paddingBottom="@dimen/dp3"
-            android:paddingTop="@dimen/dp3">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="@dimen/title_top"
-                android:layout_weight="1"
-                android:padding="@dimen/dp3"
-                android:text="隐私政策"
-                android:textSize="@dimen/dp16" />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="@dimen/title_top"
-                android:src="@mipmap/back_right" />
-        </LinearLayout>
-
-        <LinearLayout
+            bean:beanText= "隐私政策">
+        </life.bean.com.beanlife.view.MyTextView>
+        <life.bean.com.beanlife.view.MyTextView
             android:id="@+id/ll_user_agreement"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dp3"
+            android:layout_height="@dimen/dp48"
+            android:layout_marginTop="@dimen/dp1"
             android:background="@color/white"
-            android:orientation="horizontal"
             android:paddingBottom="@dimen/dp3"
-            android:paddingTop="@dimen/dp3">
+            bean:beanText= "用户协议">
+        </life.bean.com.beanlife.view.MyTextView>
 
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="@dimen/title_top"
-                android:layout_weight="1"
-                android:padding="@dimen/dp3"
-                android:text="用户协议"
-                android:textSize="@dimen/dp16" />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="@dimen/title_top"
-                android:src="@mipmap/back_right" />
-        </LinearLayout>
     </LinearLayout>
 </LinearLayout>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/dp2"
+    android:background="@color/white"
+    android:orientation="horizontal"
+    android:paddingBottom="@dimen/dp3"
+    android:paddingTop="@dimen/dp3">
+
+    <TextView
+        android:id="@+id/tv_setting_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="@dimen/title_top"
+        android:layout_weight="4"
+        android:gravity="center_vertical"
+        android:padding="@dimen/dp3"
+        android:text="" />
+
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="2"
+        android:layout_marginRight="@dimen/content_left">
+
+        <ImageView
+            android:id="@+id/iv_setting_icon"
+            android:layout_width="@dimen/title_image_size"
+            android:layout_height="@dimen/title_image_size"
+            android:src="@mipmap/circular_logo"
+            android:layout_alignParentRight="true"/>
+        <TextView
+            android:id="@+id/tv_setting_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+            android:layout_alignParentRight="true"
+            />
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="2"
+        android:layout_marginRight="@dimen/content_left">
+
+        <ImageView
+            android:id="@+id/iv_setting_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/title_top"
+            android:src="@mipmap/back_right"
+            android:layout_alignParentRight="true"/>
+        <life.bean.com.beanlife.view.SwitchButton
+            android:id="@+id/btn_setting_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+            android:layout_alignParentRight="true"
+            />
+    </RelativeLayout>
+
+
+</LinearLayout>

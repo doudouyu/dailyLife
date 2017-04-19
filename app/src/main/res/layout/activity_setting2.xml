@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:setting="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray"
+    android:orientation="vertical">
+
+    <include
+        android:id="@id/title_view"
+        layout="@layout/layout_title" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/title_top"
+            android:paddingTop="@dimen/title_top">
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/title_top"
+                android:text="账号与安全" />
+
+            <life.bean.com.beanlife.view.MySettingItemView
+                android:id="@+id/number_manage"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp48"
+                setting:isButton="false"
+                setting:isIcon="true"
+                setting:leftText="账号管理"></life.bean.com.beanlife.view.MySettingItemView>
+
+            <life.bean.com.beanlife.view.MySettingItemView
+                android:id="@+id/password"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp48"
+                setting:centerText="关闭"
+                setting:isButton="false"
+                setting:isIcon="false"
+                setting:leftText="手势密码"></life.bean.com.beanlife.view.MySettingItemView>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/title_top"
+                android:text="记账设置" />
+
+            <life.bean.com.beanlife.view.MySettingItemView
+                android:id="@+id/out_record"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp48"
+                setting:centerText=""
+                setting:isButton="false"
+                setting:isIcon="false"
+                setting:leftText="导出账单"></life.bean.com.beanlife.view.MySettingItemView>
+
+            <life.bean.com.beanlife.view.MySettingItemView
+                android:id="@+id/show_style"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp48"
+                setting:centerText="全部展开"
+                setting:isButton="false"
+                setting:isIcon="false"
+                setting:leftText="明细显示方式"></life.bean.com.beanlife.view.MySettingItemView>
+
+            <life.bean.com.beanlife.view.MySettingItemView
+                android:id="@+id/location"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp48"
+                setting:centerText=""
+                setting:isButton="true"
+                setting:isIcon="false"
+                setting:leftText="地理位置信息展示"></life.bean.com.beanlife.view.MySettingItemView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/title_top"
+                android:text="系统设置" />
+
+            <life.bean.com.beanlife.view.MySettingItemView
+                android:id="@+id/shake"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp48"
+                setting:centerText=""
+                setting:isButton="true"
+                setting:isIcon="false"
+                setting:leftText="摇一摇反馈"></life.bean.com.beanlife.view.MySettingItemView>
+
+            <life.bean.com.beanlife.view.MySettingItemView
+                android:id="@+id/voice_toggle"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp48"
+                setting:centerText=""
+                setting:isButton="true"
+                setting:isIcon="false"
+                setting:leftText="音效开关"></life.bean.com.beanlife.view.MySettingItemView>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/title_top"
+                android:text="问题与反馈" />
+
+            <life.bean.com.beanlife.view.MySettingItemView
+                android:id="@+id/suggestion"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp48"
+                setting:centerText=""
+                setting:isButton="false"
+                setting:isIcon="false"
+                setting:leftText="意见反馈"></life.bean.com.beanlife.view.MySettingItemView>
+
+            <life.bean.com.beanlife.view.MySettingItemView
+                android:id="@+id/about_us"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp48"
+                setting:centerText=""
+                setting:isButton="false"
+                setting:isIcon="false"
+                setting:leftText="关于我们"></life.bean.com.beanlife.view.MySettingItemView>
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
