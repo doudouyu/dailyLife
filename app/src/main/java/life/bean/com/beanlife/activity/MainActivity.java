@@ -10,6 +10,7 @@ import cn.sharesdk.framework.ShareSDK;
 import cn.sharesdk.onekeyshare.OnekeyShare;
 import life.bean.com.beanlife.R;
 import life.bean.com.beanlife.adapter.MyPagerAdapter;
+import life.bean.com.beanlife.fragment.AccountRing2Fragment;
 import life.bean.com.beanlife.fragment.AccountRingFragment;
 import life.bean.com.beanlife.fragment.BankCardFragment;
 import life.bean.com.beanlife.fragment.BaseFragment;
@@ -72,7 +73,7 @@ public class MainActivity extends BaseActivity {
         list.add(new DailyLifeFragment());
         list.add(new statisticalAnalysisFragment());
         list.add(new JointAccountFragment());
-        list.add(new AccountRingFragment());
+        list.add(new AccountRing2Fragment());
         list.add(new BankCardFragment());
         list.add(new MoneyServiceFragment());
         list.add(new SuggestionFragment());

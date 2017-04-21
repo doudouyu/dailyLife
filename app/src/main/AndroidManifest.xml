@@ -63,7 +63,7 @@
         <activity android:name=".activity.MainActivity"/>
         <activity android:name=".activity.Register2Activity"/>
         <activity android:name=".activity.UpdatePasswordActivity"/>
-        <activity android:name=".activity.AddRecordRingActivity"/>
+        <activity android:name=".activity.AddRecordRing2Activity"/>
         <activity android:name=".activity.CalendarActivity"/>
         <activity android:name=".activity.AddRememberActivity"/>
         <activity

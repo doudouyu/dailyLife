@@ -53,4 +53,6 @@ dependencies {
     //二维码的扫描
 //    compile files('libs/ZxingScanner.jar')
     compile 'com.android.support:multidex:1.0.1'
+    //数据传递总线
+    compile 'org.greenrobot:eventbus:3.0.0'
 }
