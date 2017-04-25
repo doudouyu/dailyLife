@@ -21,8 +21,9 @@ import life.bean.com.beanlife.R;
 import life.bean.com.beanlife.myInterface.PermissionRequestListener;
 import life.bean.com.beanlife.utils.ActivityManger;
 import life.bean.com.beanlife.utils.Common;
+import life.bean.com.beanlife.view.IBaseView;
 
-public abstract class BaseActivity extends AppCompatActivity implements View.OnClickListener {
+public abstract class BaseActivity extends AppCompatActivity implements View.OnClickListener ,IBaseView{
 
     public static Context context;
     public ImageView titleIcon;
@@ -180,4 +181,24 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
 //                break;
 //        }
 //    }
+
+    @Override
+    public void showLoading() {
+
+    }
+
+    @Override
+    public void hideLoading() {
+
+    }
+
+    @Override
+    public void RefreshView(List list) {
+
+    }
+
+    @Override
+    public void showFailedError() {
+
+    }
 }

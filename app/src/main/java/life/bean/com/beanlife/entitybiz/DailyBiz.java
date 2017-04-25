@@ -1,7 +1,5 @@
 package life.bean.com.beanlife.entitybiz;
 
-import android.content.Context;
-
 import java.util.ArrayList;
 
 import life.bean.com.beanlife.R;
@@ -12,7 +10,7 @@ import life.bean.com.beanlife.myInterface.OnGetDateListener;
  * 作者 : bean on 2017/4/25/0025.
  * 注释 :
  */
-public class DailyBiz implements IDailyBiz {
+public class DailyBiz implements IBaseBiz {
 
     @Override
     public void setData(OnGetDateListener onGetDateListener) {
