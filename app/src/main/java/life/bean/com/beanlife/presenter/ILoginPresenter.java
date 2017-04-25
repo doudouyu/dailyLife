@@ -1,7 +1,8 @@
 package life.bean.com.beanlife.presenter;
 
+import java.util.List;
+
 import life.bean.com.beanlife.activity.Register2Activity;
-import life.bean.com.beanlife.activity.RegisterActivity;
 import life.bean.com.beanlife.activity.UpdatePasswordActivity;
 import life.bean.com.beanlife.myInterface.OnLoginListener;
 import life.bean.com.beanlife.entitybiz.UserBean;
@@ -27,13 +28,13 @@ public class ILoginPresenter {
     public void login() {
         biz.login(iMainView.getName(), iMainView.getPassword(), new OnLoginListener() {
             @Override
-            public void onSuccess(UserBean bean) {
-                iMainView.toMain(bean);
+            public void onSuccess(List<UserBean> bean) {
+                iMainView.RefreshView(bean);
             }
 
             @Override
             public void onFailed() {
-                iMainView.loginFailed();
+                iMainView.showFailedError();
             }
         });
     }

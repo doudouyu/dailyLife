@@ -7,6 +7,7 @@ import android.widget.BaseAdapter;
 import android.widget.ListAdapter;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import life.bean.com.beanlife.R;
 import life.bean.com.beanlife.bean.RecordDetail;
@@ -17,15 +18,15 @@ import life.bean.com.beanlife.bean.RecordDetail;
  */
 public class MyRecordAdapter extends BaseAdapter {
     private Context context;
-    private ArrayList<RecordDetail> list;
-    public MyRecordAdapter(Context context, ArrayList<RecordDetail> list) {
+    private List<RecordDetail> list;
+    public MyRecordAdapter(Context context, List<RecordDetail> list) {
         this.context = context;
         this.list = list;
     }
 
     @Override
     public int getCount() {
-        return 8;
+        return list.size();
     }
 
     @Override

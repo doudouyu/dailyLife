@@ -9,11 +9,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import java.util.List;
+
+import life.bean.com.beanlife.view.IBaseView;
+
 /**
  * 作者 : bean on 2017/2/21/0021.
  * 注释 :
  */
-public abstract class BaseFragment extends Fragment implements View.OnClickListener{
+public abstract class BaseFragment extends Fragment implements View.OnClickListener,IBaseView{
     public Context context;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -49,6 +53,25 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
                 onInnerClick(v);
                 break;
         }
+    }
+    @Override
+    public void showLoading() {
+
+    }
+
+    @Override
+    public void hideLoading() {
+
+    }
+
+    @Override
+    public void RefreshView(List list) {
+
+    }
+
+    @Override
+    public void showFailedError() {
+
     }
 
     public void onInnerClick(View v){}

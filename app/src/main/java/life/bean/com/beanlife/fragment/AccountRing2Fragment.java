@@ -136,7 +136,7 @@ public class AccountRing2Fragment extends BaseFragment {
         EventBus.getDefault().unregister(this);
     }
 
-    @Subscribe(threadMode = ThreadMode.MAIN)
+    @Subscribe(threadMode = ThreadMode.BACKGROUND)
     public void hello(AccountRingEvent event){
         Toast.makeText(context,"event"+event.getItemDetail(),Toast.LENGTH_SHORT).show();
         list.add(new RingDetailBean(event.getItemName(), event.getItemDetail(), event.getItemTime(), event.getItemCycle()));

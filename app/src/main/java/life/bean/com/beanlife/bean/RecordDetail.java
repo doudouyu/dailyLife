@@ -9,6 +9,13 @@ public class RecordDetail {
     private String detail;
     private int money;
 
+    public RecordDetail(Integer icon, String type, String detail, int money) {
+        Icon = icon;
+        this.detail = detail;
+        this.type = type;
+        this.money = money;
+    }
+
     public Integer getIcon() {
         return Icon;
     }

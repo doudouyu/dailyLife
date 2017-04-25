@@ -1,4 +1,5 @@
 package life.bean.com.beanlife.activity;
+
 import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -7,6 +8,8 @@ import android.widget.TextView;
 import com.cl253.smssdk.lib.SMSSDK;
 import com.cl253.smssdk.listener.ICheckVerificationCodeCallBack;
 import com.cl253.smssdk.listener.IGetVerificationCodeCallBack;
+
+import java.util.List;
 
 import life.bean.com.beanlife.R;
 import life.bean.com.beanlife.presenter.IRegisterPresenter;
@@ -156,15 +159,36 @@ public class Register2Activity extends BaseActivity implements IRegisterView {
         return et_input_password.getText().toString();
     }
 
+//    @Override
+//    public void onSuccessResult() {
+//        //注册成功跳转至登录页面
+//        IntentUtils.startActivity(Login2Activity.class);
+//    }
+//
+//    @Override
+//    public void onFailedReason() {
+//        //注册失败
+//        showToast("注册失败，请重新注册！");
+//    }
+
     @Override
-    public void onSuccessResult() {
+    public void showLoading() {
+
+    }
+
+    @Override
+    public void hideLoading() {
+
+    }
+
+    @Override
+    public void RefreshView(List list) {
         //注册成功跳转至登录页面
         IntentUtils.startActivity(Login2Activity.class);
     }
 
     @Override
-    public void onFailedReason() {
-        //注册失败
+    public void showFailedError() {
         showToast("注册失败，请重新注册！");
     }
 

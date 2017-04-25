@@ -12,6 +12,7 @@ import android.widget.Toast;
 import com.mob.tools.utils.UIHandler;
 
 import java.util.HashMap;
+import java.util.List;
 
 import cn.sharesdk.framework.Platform;
 import cn.sharesdk.framework.PlatformActionListener;
@@ -230,15 +231,37 @@ public class Login2Activity extends BaseActivity implements Callback,
     public String getPassword() {
         return etPassword.getText().toString().trim();
     }
+//
+//    @Override
+//    public void toMain(UserBean bean) {
+//        showToast("success"+"姓名"+bean.getUsername()+"密码"+bean.getPassWord());
+//        IntentUtils.startActivity(MainActivity.class);
+//    }
+//
+//    @Override
+//    public void loginFailed() {
+//        showToast("failed");
+//    }
 
     @Override
-    public void toMain(UserBean bean) {
+    public void RefreshView(List list) {
+        UserBean bean = (UserBean) list.get(0);
         showToast("success"+"姓名"+bean.getUsername()+"密码"+bean.getPassWord());
         IntentUtils.startActivity(MainActivity.class);
     }
 
     @Override
-    public void loginFailed() {
+    public void showFailedError() {
         showToast("failed");
+    }
+
+    @Override
+    public void showLoading() {
+
+    }
+
+    @Override
+    public void hideLoading() {
+
     }
 }

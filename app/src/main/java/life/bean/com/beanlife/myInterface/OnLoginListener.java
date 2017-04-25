@@ -1,5 +1,7 @@
 package life.bean.com.beanlife.myInterface;
 
+import java.util.List;
+
 import life.bean.com.beanlife.entitybiz.UserBean;
 
 /**
@@ -7,6 +9,6 @@ import life.bean.com.beanlife.entitybiz.UserBean;
  * 注释 :
  */
 public interface OnLoginListener {
-    void onSuccess(UserBean bean);
+    void onSuccess(List<UserBean> bean);
     void onFailed();
 }

@@ -1,5 +1,8 @@
 package life.bean.com.beanlife.entitybiz;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import life.bean.com.beanlife.myInterface.OnLoginListener;
 
 /**
@@ -16,7 +19,9 @@ public class UserBiz implements IUserBiz {
             UserBean bean = new UserBean();
             bean.setUsername(name);
             bean.setPassWord(password);
-            onLoginListener.onSuccess(bean);
+            List<UserBean> list = new ArrayList<>();
+            list.add(bean);
+            onLoginListener.onSuccess(list);
         } else {
             //登陆失败
             onLoginListener.onFailed();

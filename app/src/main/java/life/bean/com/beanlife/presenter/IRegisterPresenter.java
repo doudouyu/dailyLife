@@ -1,5 +1,8 @@
 package life.bean.com.beanlife.presenter;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import life.bean.com.beanlife.activity.Login2Activity;
 import life.bean.com.beanlife.entitybiz.RegisterBean;
 import life.bean.com.beanlife.entitybiz.RegisterBiz;
@@ -26,12 +29,14 @@ public class IRegisterPresenter {
         registerBiz.emailRegister(iRegisterView.getNumber(), iRegisterView.getPassword1(), iRegisterView.getPassword2(), new OnRegisterListener() {
             @Override
             public void onSuccess(RegisterBean bean) {
-                iRegisterView.onSuccessResult();
+                List<RegisterBean> list = new ArrayList();
+                list.add(bean);
+                iRegisterView.RefreshView(list);
             }
 
             @Override
             public void onFailed() {
-                iRegisterView.onFailedReason();
+                iRegisterView.showFailedError();
             }
         });
     }
@@ -39,13 +44,15 @@ public class IRegisterPresenter {
         registerBiz.emailRegister(iRegisterView.getNumber(), iRegisterView.getPassword1(), iRegisterView.getPassword2(), new OnRegisterListener() {
             @Override
             public void onSuccess(RegisterBean bean) {
-                iRegisterView.onSuccessResult();
+                List<RegisterBean> list = new ArrayList();
+                list.add(bean);
+                iRegisterView.RefreshView(list);
             }
 
             @Override
             public void onFailed() {
                 iRegisterView.clear();
-                iRegisterView.onFailedReason();
+                iRegisterView.showFailedError();
             }
         });
     }
