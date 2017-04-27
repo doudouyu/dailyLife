@@ -25,5 +25,6 @@
     <dimen name="dp48">48dp</dimen>
     <dimen name="dp24">24dp</dimen>
     <dimen name="dp240">240dp</dimen>
+    <dimen name="dp6">6dp</dimen>
 
 </resources>

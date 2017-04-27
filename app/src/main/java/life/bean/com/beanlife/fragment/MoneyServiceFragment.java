@@ -14,6 +14,7 @@ import java.util.ArrayList;
 
 import life.bean.com.beanlife.R;
 import life.bean.com.beanlife.adapter.MyPagerAdapter;
+import life.bean.com.beanlife.utils.TranslateAnimationUtils;
 
 /**
  * 作者 : bean on 2017/2/24/0024.
@@ -49,12 +50,7 @@ public class MoneyServiceFragment extends BaseFragment {
         indicatorLine = view.findViewById(R.id.indicator_line);
     }
 
-    private void initRightAnim(int toX) {
-        Animation translateIn = new TranslateAnimation(0, toX, 0, 0);
-        translateIn.setDuration(100);
-        translateIn.setFillAfter(true);
-        indicatorLine.startAnimation(translateIn);
-    }
+
 
     @Override
     public void initData() {
@@ -71,7 +67,7 @@ public class MoneyServiceFragment extends BaseFragment {
 
             @Override
             public void onPageSelected(int position) {
-                initRightAnim(width / (fragments.size()) * position);
+                TranslateAnimationUtils.initRightAnim(width / (fragments.size()) * (position-1),width / (fragments.size()) * position,indicatorLine);
             }
 
             @Override
@@ -105,14 +101,14 @@ public class MoneyServiceFragment extends BaseFragment {
         switch (v.getId()) {
             case R.id.make_money:
                 pager.setCurrentItem(0);
-                initRightAnim(0);
+                TranslateAnimationUtils.initRightAnim(0,0,indicatorLine);
                 break;
             case R.id.borrow_money:
                 pager.setCurrentItem(1);
-                initRightAnim(width / (fragments.size()));
+                TranslateAnimationUtils.initRightAnim(0,width / (fragments.size()),indicatorLine);
                 break;
             case R.id.credit_card:
-                initRightAnim(width / (fragments.size()) * 2);
+                TranslateAnimationUtils.initRightAnim(width / (fragments.size()),width / (fragments.size()) * 2,indicatorLine);
                 pager.setCurrentItem(2);
 
 

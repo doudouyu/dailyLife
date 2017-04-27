@@ -7,5 +7,10 @@ import life.bean.com.beanlife.myInterface.OnGetDateListener;
  * 注释 :
  */
 public interface IBaseBiz {
-     void setData(OnGetDateListener onGetDateListener);
+    /**
+     *
+     * @param what  区别是哪一个请求
+     * @param onGetDateListener 请求结果的处理
+     */
+     void setData(int what ,OnGetDateListener onGetDateListener);
 }

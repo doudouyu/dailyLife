@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:setting="http://schemas.android.com/apk/res-auto"
+    android:background="@color/gray"
+    android:orientation="vertical">
+
+    <include
+        android:id="@id/title_view"
+        layout="@layout/layout_title" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp48"
+        android:layout_marginTop="@dimen/dp16"
+        android:background="@color/white">
+        <TextView
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="开启预算"
+            android:layout_marginLeft="@dimen/dp10"/>
+        <life.bean.com.beanlife.view.SwitchButton
+            android:id="@+id/sb_open_budget"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/dp10"/>
+    </RelativeLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp10"
+        android:paddingTop="@dimen/dp10"
+        android:paddingBottom="@dimen/dp10"
+        android:text="关闭预算后，首页将显示收支差额信息"/>
+    <life.bean.com.beanlife.view.MySettingItemView
+        android:id="@+id/show_budget_dialog"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp48"
+        setting:centerText="1000"
+        setting:isButton="false"
+        setting:isIcon="false"
+        setting:leftText="设置预算金额"
+        android:visibility="gone"></life.bean.com.beanlife.view.MySettingItemView>
+
+</LinearLayout>

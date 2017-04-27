@@ -1,11 +1,19 @@
 package life.bean.com.beanlife.fragment;
 
 import android.content.Intent;
+import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
+import android.widget.AbsListView;
 import android.widget.Adapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.TextView;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,6 +23,7 @@ import life.bean.com.beanlife.activity.ShortEditorActivity;
 import life.bean.com.beanlife.activity.TextEditorActivity;
 import life.bean.com.beanlife.activity.VoiceEditorActivity;
 import life.bean.com.beanlife.adapter.MyRecordAdapter;
+import life.bean.com.beanlife.bean.GatChangeToBudgetBean;
 import life.bean.com.beanlife.bean.RecordDetail;
 import life.bean.com.beanlife.fragment.BaseFragment;
 import life.bean.com.beanlife.presenter.IDailyLifePresenter;
@@ -25,7 +34,7 @@ import life.bean.com.beanlife.view.IDailyLifeView;
  * 作者 : bean on 2017/2/24/0024.
  * 注释 :
  */
-public class DailyLifeFragment extends BaseFragment implements IDailyLifeView{
+public class DailyLifeFragment extends BaseFragment implements IDailyLifeView {
 
     private LinearLayout llPay;
     private LinearLayout llInCome;
@@ -37,13 +46,30 @@ public class DailyLifeFragment extends BaseFragment implements IDailyLifeView{
     private ImageView ivBook;
     private Intent intent;
     private IDailyLifePresenter iDailyLifePresenter = new IDailyLifePresenter(this);
+    private TextView tvGap;
+    private TextView tvBudgetSetting;
+
     @Override
     public int getLayoutId() {
         return R.layout.layout_daily_life;
     }
 
+
+    //    @Override
+//    public void onResume() {
+//        super.onResume();
+//        EventBus.getDefault().register(this);
+//    }
+//
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        EventBus.getDefault().unregister(this);
+    }
+
     @Override
     public void initView(View view) {
+        EventBus.getDefault().register(this);
         llPay = (LinearLayout) view.findViewById(R.id.ll_pay);
         llInCome = (LinearLayout) view.findViewById(R.id.ll_income);
         llGap = (LinearLayout) view.findViewById(R.id.ll_distance);
@@ -51,6 +77,9 @@ public class DailyLifeFragment extends BaseFragment implements IDailyLifeView{
         ivPen = (ImageView) view.findViewById(R.id.iv_pen);
         ivVoice = (ImageView) view.findViewById(R.id.iv_voice);
         ivBook = (ImageView) view.findViewById(R.id.iv_book);
+
+        tvGap = (TextView) view.findViewById(R.id.tv_gap);
+        tvBudgetSetting = (TextView) view.findViewById(R.id.tv_budget_1);
 
     }
 
@@ -68,6 +97,7 @@ public class DailyLifeFragment extends BaseFragment implements IDailyLifeView{
         ivPen.setOnClickListener(this);
         ivVoice.setOnClickListener(this);
         ivBook.setOnClickListener(this);
+
     }
 
     @Override
@@ -84,7 +114,7 @@ public class DailyLifeFragment extends BaseFragment implements IDailyLifeView{
                 iDailyLifePresenter.showIncomeData();
                 break;
             case R.id.iv_pen:
-               iDailyLifePresenter.shortEdit();
+                iDailyLifePresenter.shortEdit();
                 break;
             case R.id.iv_voice:
                 iDailyLifePresenter.voiceEdit();
@@ -111,5 +141,11 @@ public class DailyLifeFragment extends BaseFragment implements IDailyLifeView{
     @Override
     public void showFailedError() {
         showToast("数据加载失败，请稍后重试！");
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onGatChangeToBudget(GatChangeToBudgetBean event) {
+        tvBudgetSetting.setText(event.getGatChangeToBudget());
+        tvGap.setText("预算金额");
     }
 }

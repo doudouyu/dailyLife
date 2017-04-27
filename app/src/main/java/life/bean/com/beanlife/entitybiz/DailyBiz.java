@@ -13,7 +13,7 @@ import life.bean.com.beanlife.myInterface.OnGetDateListener;
 public class DailyBiz implements IBaseBiz {
 
     @Override
-    public void setData(OnGetDateListener onGetDateListener) {
+    public void setData(int what,OnGetDateListener onGetDateListener) {
         ArrayList< RecordDetail> list = new ArrayList();
         for (int i = 0; i < 20; i++) {
             list.add(new RecordDetail(R.id.iv_icon, "饮食", "买衣服" + i, 3));

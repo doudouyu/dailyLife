@@ -17,6 +17,13 @@ import life.bean.com.beanlife.R;
  * 注释 :设置界面的子条目
  */
 public class MySettingItemView extends LinearLayout{
+
+    private TextView tvCenter;
+    private TextView tvLeft;
+    private ImageView ivIcon;
+    private ImageView ivBack;
+    private SwitchButton button;
+
     public MySettingItemView(Context context) {
         super(context);
         initView(context,null);
@@ -34,11 +41,11 @@ public class MySettingItemView extends LinearLayout{
 
     private void initView(Context context, AttributeSet attrs) {
         View view = LayoutInflater.from(context).inflate(R.layout.my_setting_item, this, true);
-        TextView tvLeft = (TextView) view.findViewById(R.id.tv_setting_title);
-        TextView tvCenter = (TextView) view.findViewById(R.id.tv_setting_text);
-        ImageView ivIcon = (ImageView) view.findViewById(R.id.iv_setting_icon);
-        ImageView ivBack = (ImageView) view.findViewById(R.id.iv_setting_back);
-        SwitchButton button = (SwitchButton) view.findViewById(R.id.btn_setting_button);
+        tvLeft = (TextView) view.findViewById(R.id.tv_setting_title);
+        tvCenter = (TextView) view.findViewById(R.id.tv_setting_text);
+        ivIcon = (ImageView) view.findViewById(R.id.iv_setting_icon);
+        ivBack = (ImageView) view.findViewById(R.id.iv_setting_back);
+        button = (SwitchButton) view.findViewById(R.id.btn_setting_button);
         TypedArray array = context.obtainStyledAttributes(attrs,R.styleable.settingItem);
         if (array==null){
             return;
@@ -62,14 +69,21 @@ public class MySettingItemView extends LinearLayout{
         }
         String leftText = array.getString(R.styleable.settingItem_leftText);
         if (!TextUtils.isEmpty(leftText)){
-            tvLeft.setText(leftText);
+            setLeftText(leftText);
         }
         String centerText = array.getString(R.styleable.settingItem_centerText);
         if (!isicon){
             if (!TextUtils.isEmpty(centerText)){
-                tvCenter.setText(centerText);
+                setCenterText(centerText);
             }
         }
 
+    }
+
+    public void setCenterText(String centerText) {
+        tvCenter.setText(centerText);
+    }
+    public void setLeftText(String leftText) {
+        tvLeft.setText(leftText);
     }
 }

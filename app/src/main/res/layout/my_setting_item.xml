@@ -29,6 +29,7 @@
             android:id="@+id/iv_setting_icon"
             android:layout_width="@dimen/title_image_size"
             android:layout_height="@dimen/title_image_size"
+            android:layout_centerVertical="true"
             android:src="@mipmap/circular_logo"
             android:layout_alignParentRight="true"/>
         <TextView
@@ -36,6 +37,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:visibility="invisible"
+            android:layout_centerVertical="true"
             android:layout_alignParentRight="true"
             />
     </RelativeLayout>
@@ -51,12 +53,14 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/title_top"
             android:src="@mipmap/back_right"
+            android:layout_centerVertical="true"
             android:layout_alignParentRight="true"/>
         <life.bean.com.beanlife.view.SwitchButton
             android:id="@+id/btn_setting_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:visibility="invisible"
+            android:layout_centerVertical="true"
             android:layout_alignParentRight="true"
             />
     </RelativeLayout>

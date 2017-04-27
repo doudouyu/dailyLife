@@ -24,18 +24,21 @@ import life.bean.com.beanlife.view.IDailyLifeView;
 public class IDailyLifePresenter {
     private IDailyLifeView iDailyLifeView;
     private DailyBiz dailyBiz;
+
     public IDailyLifePresenter(IDailyLifeView iDailyLifeView) {
         this.iDailyLifeView = iDailyLifeView;
         dailyBiz = new DailyBiz();
     }
 
-    public void shortEdit(){
+    public void shortEdit() {
         IntentUtils.startActivity(ShortEditorActivity.class);
     }
-    public void voiceEdit(){
+
+    public void voiceEdit() {
         IntentUtils.startActivity(VoiceEditorActivity.class);
     }
-    public void textEdit(){
+
+    public void textEdit() {
         IntentUtils.startActivity(TextEditorActivity.class);
     }
 
@@ -53,16 +56,14 @@ public class IDailyLifePresenter {
 
 
     public void setListData() {
-        dailyBiz.setData(new OnGetDateListener() {
+        dailyBiz.setData(1000,new OnGetDateListener() {
             @Override
-            public void onSuccessGetData(ArrayList<RecordDetail> list) {
-                //主界面刷新数据
+            public void onSuccessGetData(List list) {
                 iDailyLifeView.RefreshView(list);
             }
 
             @Override
             public void onFailedGetData() {
-                //数据找不到
                 iDailyLifeView.showFailedError();
             }
         });

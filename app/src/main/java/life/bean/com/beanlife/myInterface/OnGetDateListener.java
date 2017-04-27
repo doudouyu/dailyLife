@@ -1,6 +1,9 @@
 package life.bean.com.beanlife.myInterface;
 
+import com.iflytek.cloud.thirdparty.T;
+
 import java.util.ArrayList;
+import java.util.List;
 
 import life.bean.com.beanlife.bean.RecordDetail;
 
@@ -9,6 +12,6 @@ import life.bean.com.beanlife.bean.RecordDetail;
  * 注释 :
  */
 public interface OnGetDateListener {
-    void  onSuccessGetData(ArrayList<RecordDetail> list);
+    void  onSuccessGetData(List list);
     void  onFailedGetData();
 }

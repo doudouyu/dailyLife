@@ -22,9 +22,7 @@ public class EditView extends RelativeLayout {
     private ImageView ivDelete;
 
     public EditView(Context context) {
-        super(context);
-        this.context = context;
-        initView();
+        this(context,null);
 
     }
 

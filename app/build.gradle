@@ -8,14 +8,14 @@ android {
         applicationId "life.bean.com.beanlife"
         minSdkVersion 16
         targetSdkVersion 23
-        versionCode 1
-        versionName "1.0"
-        multiDexEnabled true
+            versionCode 1
+            versionName "1.0"
+            multiDexEnabled true
 
 
-    }
-    buildTypes {
-        release {
+        }
+        buildTypes {
+            release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
@@ -28,7 +28,7 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.4.0'
     compile files('libs/MobCommons-2017.0216.1054.jar')
@@ -45,14 +45,16 @@ dependencies {
     //图表
     compile 'com.github.PhilJay:MPAndroidChart:v2.1.4'
     //    compile 'de.hdodenhof:circleimageview:2.1.0'
-
-//    compile files('libs/253_sms_sdk_lib_v_1.3_p.jar')
-//    compile files('libs/Msc.jar')
+    //    compile files('libs/253_sms_sdk_lib_v_1.3_p.jar')
+    //    compile files('libs/Msc.jar')
     //日历控件
     compile 'com.prolificinteractive:material-calendarview:1.4.0'
     //二维码的扫描
-//    compile files('libs/ZxingScanner.jar')
+    //    compile files('libs/ZxingScanner.jar')
     compile 'com.android.support:multidex:1.0.1'
     //数据传递总线
     compile 'org.greenrobot:eventbus:3.0.0'
+    compile 'com.android.support:recyclerview-v7:23.0.1'
+    compile 'com.github.bumptech.glide:glide:3.5.2'
+
 }
