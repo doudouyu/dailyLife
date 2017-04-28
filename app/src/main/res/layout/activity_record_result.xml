@@ -74,7 +74,7 @@
             android:id="@+id/indicator_line"
             android:layout_width="50dp"
             android:layout_height="2dp"
-            android:background="@color/pink"/>
+            android:backgrouand="@color/pink"/>
         <TextView
             android:id="@+id/tv_year"
             android:layout_width="match_parent"
