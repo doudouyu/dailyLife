@@ -1,5 +1,6 @@
 package life.bean.com.beanlife.activity;
 
+import android.app.AlertDialog;
 import android.content.Context;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -94,7 +95,9 @@ public class RecordQueryResultActivity extends BaseActivity implements IQueryRes
         super.onInnerClick(v);
         switch (v.getId()) {
             case R.id.ll_date:
-                //点击这个弹出下面的布局
+                //点击这个弹出对话框
+//                showMyDialog();
+
                 if (llContent.getVisibility() == View.GONE) {
                     llContent.setVisibility(View.VISIBLE);
                     ivArrowState.setImageResource(R.mipmap.arrow_up);
@@ -105,7 +108,7 @@ public class RecordQueryResultActivity extends BaseActivity implements IQueryRes
                 }
                 break;
             case R.id.tv_by_week:
-                //给Recycle设置数据源以及管理器
+//                给Recycle设置数据源以及管理器
                 numColumns = 3;
                 glManger = new GridLayoutManager(this, numColumns);
                 recyclerView.setLayoutManager(glManger);
@@ -133,6 +136,8 @@ public class RecordQueryResultActivity extends BaseActivity implements IQueryRes
                 break;
         }
     }
+
+
 
     @Override
     public void RefreshView(List list) {

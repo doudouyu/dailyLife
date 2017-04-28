@@ -26,11 +26,11 @@ android {
             java.srcDirs = ['src/main/java', 'src/main/java-gen']
         }
     }
-//    allprojects {
-//        repositories {
-//            maven { url "https://jitpack.io" }
-//        }
-//    }
+    allprojects {
+        repositories {
+            maven { url "https://jitpack.io" }
+        }
+    }
 }
 
 dependencies {
