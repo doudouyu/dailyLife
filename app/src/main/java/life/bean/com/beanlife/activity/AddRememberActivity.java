@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import life.bean.com.beanlife.R;
+import life.bean.com.beanlife.utils.RequestFlag;
 
 /**
  * 作者 : bean on 2017/3/30/0030.
@@ -15,7 +16,7 @@ import life.bean.com.beanlife.R;
  */
 public class AddRememberActivity extends BaseActivity{
 
-    private String hint;
+    private int hint;
     private TextView tv_title;
     private TextView tv_sure;
     private ImageView iv_back;
@@ -29,7 +30,7 @@ public class AddRememberActivity extends BaseActivity{
     @Override
     public void initView() {
         Intent intent = getIntent();
-        hint = intent.getStringExtra("hint");
+        hint = intent.getIntExtra("hint",0);
         tv_title = (TextView) findViewById(R.id.tv_title_name);
         tv_sure = (TextView) findViewById(R.id.tv_sure);
         iv_back = (ImageView) findViewById(R.id.iv_back);
@@ -38,7 +39,7 @@ public class AddRememberActivity extends BaseActivity{
 
     @Override
     public void initData() {
-        if ("1".equals(hint)){
+        if (hint == RequestFlag.ADD_MEMBER){
             tv_title.setText("新增成员");
             et_please_input_member_name.setHint("请输入成员姓名");
         }else {

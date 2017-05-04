@@ -41,12 +41,15 @@ import life.bean.com.beanlife.adapter.MyPagerAdapter;
 import life.bean.com.beanlife.fragment.BaseFragment;
 import life.bean.com.beanlife.fragment.InComeFragment;
 import life.bean.com.beanlife.fragment.PayFragment;
+import life.bean.com.beanlife.presenter.IShortEditPresenter;
+import life.bean.com.beanlife.utils.RequestFlag;
+import life.bean.com.beanlife.view.IShortEditView;
 
 /**
  * 作者 : bean on 2017/2/23/0023.
  * 注释 :
  */
-public class ShortEditorActivity extends BaseActivity {
+public class ShortEditorActivity extends BaseActivity implements IShortEditView{
 
     private static final int IMAGE = 1;
     private static final int CAMERA = 2;
@@ -72,7 +75,7 @@ public class ShortEditorActivity extends BaseActivity {
     private TextView expend;
     private TextView inCome;
     private TextView tv_save;
-
+    private IShortEditPresenter presenter = new IShortEditPresenter(this);
     @Override
     public int getLayoutId() {
         return R.layout.layout_short_editor;
@@ -155,37 +158,25 @@ public class ShortEditorActivity extends BaseActivity {
                 }
                 break;
             case R.id.tv_choose_money_category:
-                showKeyBord();
+                presenter.showKeyBord();
                 break;
             case R.id.tv_calendar:
-                Intent intentCalendar = new Intent(context, CalendarActivity.class);
-                intentCalendar.putExtra("titleName", "1");
-                startActivity(intentCalendar);
+                presenter.ToCalendarActivity("1");
+
                 break;
             case R.id.rl_location:
-                Intent intentLocation = new Intent(context, CalendarActivity.class);
-                intentLocation.putExtra("titleName", "2");
-                startActivity(intentLocation);
+                presenter.ToCalendarActivity("2");
+
                 break;
             case R.id.ll_add_member:
                 flag = 1;
-                list1 = new ArrayList();
-                list1.add("爱人");
-                list1.add("孩子");
-                list1.add("父母");
-                list1.add("朋友");
+                presenter.showBottomDialog(RequestFlag.CHOOSE_MEMBER);
 
-                showBottomDialog(list1);
                 break;
             case R.id.rl_choose_pay_mode:
                 flag = 2;
-                list2 = new ArrayList();
-                list2.add("现金");
-                list2.add("支付宝");
-                list2.add("微信支付");
-                list2.add("储蓄卡");
-                list2.add("信用卡");
-                showBottomDialog(list2);
+                presenter.showBottomDialog(RequestFlag.CHOOSE_PAY_MODE);
+
                 break;
             case R.id.ll_camera:
                 showCamera();
@@ -237,61 +228,61 @@ public class ShortEditorActivity extends BaseActivity {
         window.setAttributes(lp);
     }
 
-    /**
-     * 底部弹出框
-     *
-     * @param list2
-     */
-    private void showBottomDialog(final ArrayList<String> list2) {
-        final Dialog dialog = new Dialog(context, R.style.ActionSheetDialogStyle);
-        View view = View.inflate(context, R.layout.layout_bottom_dialog, null);
-        dialog.setContentView(view);
-        final TextView dialog_title_name = (TextView) view.findViewById(R.id.dialog_title_name);
-        TextView tv_add = (TextView) view.findViewById(R.id.tv_add);
-        ListView lv_dialog_list_view = (ListView) view.findViewById(R.id.lv_dialog_list_view);
-        adapter = new ArrayAdapter<>(context, android.R.layout.simple_list_item_1, list2);
-        lv_dialog_list_view.setAdapter(adapter);
-        if (flag == 1) {
-            dialog_title_name.setText("选择成员");
-        } else {
-            dialog_title_name.setText("选择支付方式");
-        }
-        tv_add.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Intent intent = new Intent(context, AddRememberActivity.class);
-                if (flag == 1) {
-                    intent.putExtra("hint", "1");
-                } else {
-                    intent.putExtra("hint", "2");
-                }
-                startActivityForResult(intent, 1);
-            }
-        });
-        lv_dialog_list_view.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String title_name = list2.get(position);
-                if (flag == 1) {
-                    tv_add_member.setText(title_name);
-
-                } else {
-                    tv_choose_pay_mode.setText(title_name);
-                }
-                dialog.dismiss();
-            }
-        });
-        dialog.show();//显示对话框
-
-        Window window = dialog.getWindow();
-//        window.getDecorView().setPadding(0,0,0,0);
-        window.setGravity(Gravity.BOTTOM);
-        WindowManager.LayoutParams lp = dialog.getWindow().getAttributes();
-        lp.width = WindowManager.LayoutParams.FILL_PARENT;
-        lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
-        window.setAttributes(lp);
-    }
+//    /**
+//     * 底部弹出框
+//     *
+//     * @param list2
+//     */
+//    private void showBottomDialog(final ArrayList<String> list2) {
+//        final Dialog dialog = new Dialog(context, R.style.ActionSheetDialogStyle);
+//        View view = View.inflate(context, R.layout.layout_bottom_dialog, null);
+//        dialog.setContentView(view);
+//        final TextView dialog_title_name = (TextView) view.findViewById(R.id.dialog_title_name);
+//        TextView tv_add = (TextView) view.findViewById(R.id.tv_add);
+//        ListView lv_dialog_list_view = (ListView) view.findViewById(R.id.lv_dialog_list_view);
+//        adapter = new ArrayAdapter<>(context, android.R.layout.simple_list_item_1, list2);
+//        lv_dialog_list_view.setAdapter(adapter);
+//        if (flag == 1) {
+//            dialog_title_name.setText("选择成员");
+//        } else {
+//            dialog_title_name.setText("选择支付方式");
+//        }
+//        tv_add.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//                Intent intent = new Intent(context, AddRememberActivity.class);
+//                if (flag == 1) {
+//                    intent.putExtra("hint", "1");
+//                } else {
+//                    intent.putExtra("hint", "2");
+//                }
+//                startActivityForResult(intent, 1);
+//            }
+//        });
+//        lv_dialog_list_view.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//                String title_name = list2.get(position);
+//                if (flag == 1) {
+//                    tv_add_member.setText(title_name);
+//
+//                } else {
+//                    tv_choose_pay_mode.setText(title_name);
+//                }
+//                dialog.dismiss();
+//            }
+//        });
+//        dialog.show();//显示对话框
+//
+//        Window window = dialog.getWindow();
+////        window.getDecorView().setPadding(0,0,0,0);
+//        window.setGravity(Gravity.BOTTOM);
+//        WindowManager.LayoutParams lp = dialog.getWindow().getAttributes();
+//        lp.width = WindowManager.LayoutParams.FILL_PARENT;
+//        lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
+//        window.setAttributes(lp);
+//    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -425,5 +416,20 @@ public class ShortEditorActivity extends BaseActivity {
         expend.setTextColor(getResources().getColor(R.color.white));
         inCome.setBackgroundColor(getResources().getColor(R.color.white));
         inCome.setTextColor(getResources().getColor(R.color.pink));
+    }
+
+    @Override
+    public void setAddMemberText(String title_name) {
+        tv_add_member.setText(title_name);
+    }
+
+    @Override
+    public void setPayModeText(String title_name) {
+        tv_choose_pay_mode.setText(title_name);
+    }
+
+    @Override
+    public void startMyActivity(Intent intent, int what) {
+        startActivityForResult(intent,what);
     }
 }

@@ -199,6 +199,6 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
 
     @Override
     public void showFailedError() {
-
+        showToast("数据错误，请稍后重试！");
     }
 }
