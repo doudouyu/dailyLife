@@ -2,6 +2,7 @@ package life.bean.com.beanlife.activity;
 
 import android.os.Handler.Callback;
 import android.os.Message;
+import android.text.Html;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
@@ -60,6 +61,10 @@ public class Login2Activity extends BaseActivity implements Callback,
         ivWechat = (ImageView) findViewById(R.id.iv_wechat);
         ivQq = (ImageView) findViewById(R.id.iv_qq);
         login = (TextView) findViewById(R.id.login);
+        TextView tv_register = (TextView) findViewById(R.id.tv_register);
+        String str2=String.format("提示：未注册云验证的手机号，登录时将自动注册云验证账号，且代表您已同意\n ：<font color=\"#0000ff\">%s", "《云验证用户协议》");
+        tv_register.setText(Html.fromHtml(str2));
+
     }
 
     @Override

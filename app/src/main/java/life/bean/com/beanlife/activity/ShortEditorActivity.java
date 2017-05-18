@@ -393,7 +393,6 @@ public class ShortEditorActivity extends BaseActivity implements IShortEditView{
 
             }else {
                 setPageTwo();
-
             }
 
         }

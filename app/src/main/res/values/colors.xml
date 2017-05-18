@@ -12,4 +12,5 @@
     <color name="light_gray">#8a8a8a</color>
     <color name="red">#ff0000</color>
     <color name="blue">#1296db</color>
+    <color name="scan_corner_color">#0effc2</color>
 </resources>

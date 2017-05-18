@@ -1,20 +1,25 @@
 package life.bean.com.beanlife.fragment;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 
+import com.uuzuche.lib_zxing.activity.CaptureActivity;
+import com.uuzuche.lib_zxing.activity.CodeUtils;
+import com.uuzuche.lib_zxing.activity.ZXingLibrary;
+
 import java.util.ArrayList;
 
 import life.bean.com.beanlife.R;
 import life.bean.com.beanlife.activity.MainActivity;
+import life.bean.com.beanlife.activity.MyCaptureActivity;
 import life.bean.com.beanlife.activity.NoticeActivity;
 import life.bean.com.beanlife.activity.NumberManageActivity;
 import life.bean.com.beanlife.activity.Setting2Activity;
-import life.bean.com.beanlife.activity.SettingActivity;
 import life.bean.com.beanlife.adapter.MyMenuAdapter;
 import life.bean.com.beanlife.bean.MenuInfo;
 
@@ -23,6 +28,7 @@ import life.bean.com.beanlife.bean.MenuInfo;
  * 注释 :
  */
 public class MenuFragment extends BaseFragment {
+    private static final int REQUEST_CODE = 1;
     private ArrayList<MenuInfo> list = new ArrayList<>();
     private ListView menu;
     private int currentPosition;
@@ -37,11 +43,13 @@ public class MenuFragment extends BaseFragment {
 
     @Override
     public int getLayoutId() {
+
         return R.layout.layout_menu;
     }
 
     @Override
     public void initView(View view) {
+
         initList();
         Log.i("list", list.size() + "");
         menu = (ListView) view.findViewById(R.id.menu_detail);
@@ -124,6 +132,7 @@ public class MenuFragment extends BaseFragment {
                 startActivity(intent);
                 break;
             case R.id.scan:
+                openScan();
                 break;
             case R.id.setting:
                 intent = new Intent(context, Setting2Activity.class);
@@ -134,5 +143,30 @@ public class MenuFragment extends BaseFragment {
         }
     }
 
+    @Override
+    public void openScan() {
+        super.openScan();
+        intent = new Intent(context, MyCaptureActivity.class);
+        startActivityForResult(intent,REQUEST_CODE);
+    }
 
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == REQUEST_CODE){
+            if(data ==null){
+                return;
+            }
+            Bundle bundle = data.getExtras();
+            if (bundle == null){
+                return;
+            }
+            if (bundle.getInt(CodeUtils.RESULT_TYPE) == CodeUtils.RESULT_SUCCESS){
+                String result = CodeUtils.RESULT_STRING;
+                showToast("二维码解析结果："+result);
+            }else if (bundle.getInt(CodeUtils.RESULT_TYPE) == CodeUtils.RESULT_FAILED){
+                showToast("二维码解析失败");
+            }
+        }
+    }
 }

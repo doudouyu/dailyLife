@@ -2,7 +2,6 @@ package life.bean.com.beanlife.activity;
 
 import android.content.Intent;
 import android.view.View;
-import android.widget.LinearLayout;
 
 import cn.sharesdk.framework.ShareSDK;
 import cn.sharesdk.onekeyshare.OnekeyShare;

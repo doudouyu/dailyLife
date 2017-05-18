@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="life.bean.com.beanlife">
+
     <uses-permission android:name="android.permission.GET_TASKS" />
     <!--联网权限-->
 
@@ -8,31 +9,42 @@
     <!--sd卡的读写权限-->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <!--读取联系人的权限-->
-    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS"/>
-    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <!-- 在SDCard中创建与删除文件权限 -->
     <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
     <!--连接网络权限，用于执行云端语音能力 -->
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
     <!--获取手机录音机使用权限，听写、识别、语义理解需要用到此权限 -->
-    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <!--读取网络信息状态 -->
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <!--获取当前wifi状态 -->
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <!--允许程序改变网络连接状态 -->
-    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
     <!--读取手机信息权限 -->
-    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <!--读取联系人权限，上传联系人需要用到此权限 -->
-    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
 
     <!-- 蓝牙分享所需的权限 -->
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+
     <application
         android:name="life.bean.com.beanlife.MyApplication"
         android:allowBackup="true"
@@ -46,39 +58,40 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.ShortEditorActivity"/>
-        <activity android:name=".activity.TextEditorActivity"/>
-        <activity android:name=".activity.VoiceEditorActivity"/>
-        <activity android:name=".activity.SearchActivity"/>
-        <activity android:name=".activity.SearchResultActivity"/>
-        <activity android:name=".activity.AccountRememberActivity"/>
-        <activity android:name=".activity.InviteFriendActivity"/>
-        <activity android:name=".activity.NumberManageActivity"/>
-        <activity android:name=".activity.NumberBindActivity"/>
-        <activity android:name=".activity.Setting2Activity"/>
-        <activity android:name=".activity.SuggestionActivity"/>
-        <activity android:name=".activity.AboutUs2Activity"/>
-        <activity android:name=".activity.AboutUsDetailActivity"/>
-        <activity android:name=".activity.NoticeActivity"/>
-        <activity android:name=".activity.MainActivity"/>
-        <activity android:name=".activity.Register2Activity"/>
-        <activity android:name=".activity.UpdatePasswordActivity"/>
-        <activity android:name=".activity.AddRecordRing2Activity"/>
-        <activity android:name=".activity.CalendarActivity"/>
-        <activity android:name=".activity.AddRememberActivity"/>
-        <activity android:name=".activity.RecordQueryResultActivity"/>
-        <activity android:name=".activity.BudgetSettingActivity"/>
-        <activity android:name=".activity.RecordActivity"/>
+        <activity android:name=".activity.ShortEditorActivity" />
+        <activity android:name=".activity.TextEditorActivity" />
+        <activity android:name=".activity.VoiceEditorActivity" />
+        <activity android:name=".activity.SearchActivity" />
+        <activity android:name=".activity.SearchResultActivity" />
+        <activity android:name=".activity.AccountRememberActivity" />
+        <activity android:name=".activity.InviteFriendActivity" />
+        <activity android:name=".activity.NumberManageActivity" />
+        <activity android:name=".activity.NumberBindActivity" />
+        <activity android:name=".activity.Setting2Activity" />
+        <activity android:name=".activity.SuggestionActivity" />
+        <activity android:name=".activity.AboutUs2Activity" />
+        <activity android:name=".activity.AboutUsDetailActivity" />
+        <activity android:name=".activity.NoticeActivity" />
+        <activity android:name=".activity.MainActivity" />
+        <activity android:name=".activity.Register2Activity" />
+        <activity android:name=".activity.UpdatePasswordActivity" />
+        <activity android:name=".activity.AddRecordRing2Activity" />
+        <activity android:name=".activity.CalendarActivity" />
+        <activity android:name=".activity.AddRememberActivity" />
+        <activity android:name=".activity.RecordQueryResultActivity" />
+        <activity android:name=".activity.BudgetSettingActivity" />
+        <activity android:name=".activity.RecordActivity" />
         <activity
             android:name="com.mob.tools.MobUIShell"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden|adjustResize" >
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:windowSoftInputMode="stateHidden|adjustResize">
             <!-- QQ和QQ空间分享 QQ登录的回调必须要配置的 -->
             <intent-filter>
                 <data android:scheme="tencent100371282" />
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.BROWSABLE" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
@@ -92,11 +105,11 @@
         <!--微信分享回调 -->
         <activity
             android:name="cn.sharesdk.demo.wxapi.WXEntryActivity"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:exported="true"
-            android:screenOrientation="portrait" />
-
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity android:name=".activity.MyCaptureActivity" />
     </application>
 
 </manifest>

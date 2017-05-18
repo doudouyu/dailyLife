@@ -1,5 +1,6 @@
 package life.bean.com.beanlife.activity;
 
+import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -22,8 +23,11 @@ import life.bean.com.beanlife.myInterface.PermissionRequestListener;
 import life.bean.com.beanlife.utils.ActivityManger;
 import life.bean.com.beanlife.utils.Common;
 import life.bean.com.beanlife.view.IBaseView;
+import pub.devrel.easypermissions.AfterPermissionGranted;
+import pub.devrel.easypermissions.AppSettingsDialog;
+import pub.devrel.easypermissions.EasyPermissions;
 
-public abstract class BaseActivity extends AppCompatActivity implements View.OnClickListener ,IBaseView{
+public abstract class BaseActivity extends AppCompatActivity implements View.OnClickListener ,IBaseView,EasyPermissions.PermissionCallbacks{
 
     public static Context context;
     public ImageView titleIcon;
@@ -43,6 +47,62 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
         dealCommon();
         initData();
     }
+    /**
+     * 请求CAMERA权限码
+     */
+    public static final int REQUEST_CAMERA_PERM = 101;
+
+
+    /**
+     * EsayPermissions接管权限处理逻辑
+     * @param requestCode
+     * @param permissions
+     * @param grantResults
+     */
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+
+        // Forward results to EasyPermissions
+        EasyPermissions.onRequestPermissionsResult(requestCode, permissions, grantResults, this);
+    }
+
+
+    @AfterPermissionGranted(REQUEST_CAMERA_PERM)
+    public void cameraTask(int viewId) {
+        if (EasyPermissions.hasPermissions(this, Manifest.permission.CAMERA)) {
+            // Have permission, do the thing!
+            openScan();
+        } else {
+            // Ask for one permission
+            EasyPermissions.requestPermissions(this, "需要请求camera权限",
+                    REQUEST_CAMERA_PERM, Manifest.permission.CAMERA);
+        }
+    }
+//打开扫码
+    private void openScan() {
+
+    }
+
+    @Override
+    public void onPermissionsGranted(int requestCode, List<String> perms) {
+        Toast.makeText(this, "执行onPermissionsGranted()...", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onPermissionsDenied(int requestCode, List<String> perms) {
+        Toast.makeText(this, "执行onPermissionsDenied()...", Toast.LENGTH_SHORT).show();
+        if (EasyPermissions.somePermissionPermanentlyDenied(this, perms)) {
+            new AppSettingsDialog.Builder(this, "当前App需要申请camera权限,需要打开设置页面么?")
+                    .setTitle("权限申请")
+                    .setPositiveButton("确认")
+                    .setNegativeButton("取消", null /* click listener */)
+                    .setRequestCode(REQUEST_CAMERA_PERM)
+                    .build()
+                    .show();
+        }
+    }
+
 
     @Override
     protected void onDestroy() {
