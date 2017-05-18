@@ -315,7 +315,7 @@ public class ShortEditorActivity extends BaseActivity implements IShortEditView{
                 showToast("设备SD卡不能使用，请检查");
                 return;
             }
-            new DateFormat();
+//            new DateFormat();
             String name = DateFormat.format("yyyyMMdd_hhmmss", Calendar.getInstance(Locale.CHINA)) + ".jpg";
             Toast.makeText(this, name, Toast.LENGTH_LONG).show();
             Bundle bundle = data.getExtras();

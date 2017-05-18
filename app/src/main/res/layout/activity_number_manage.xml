@@ -9,10 +9,11 @@
         android:id="@id/title_view"
         layout="@layout/layout_title" />
 
-    <ImageView
+    <life.bean.com.beanlife.view.CycleImageView
+
         android:id="@+id/iv_icon_change"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="@dimen/title_left"
         android:src="@mipmap/circular_logo" />
