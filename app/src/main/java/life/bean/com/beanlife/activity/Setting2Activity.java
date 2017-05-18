@@ -1,6 +1,7 @@
 package life.bean.com.beanlife.activity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -8,7 +9,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import life.bean.com.beanlife.R;
+import life.bean.com.beanlife.gesture.GestureEditActivity;
+import life.bean.com.beanlife.gesture.GestureVerifyActivity;
 import life.bean.com.beanlife.utils.Common;
+import life.bean.com.beanlife.utils.SharepreferenceUtils;
+import life.bean.com.beanlife.utils.SpUtils;
 import life.bean.com.beanlife.view.MySettingItemView;
 
 /**
@@ -27,6 +32,9 @@ public class Setting2Activity extends BaseActivity {
     private MySettingItemView suggestion;
     private MySettingItemView about_us;
     private Intent intent;
+    private boolean isFist = true;
+    private boolean passwordState;
+
     @Override
     public int getLayoutId() {
         return R.layout.activity_setting2;
@@ -45,6 +53,7 @@ public class Setting2Activity extends BaseActivity {
         voice_toggle = (MySettingItemView) findViewById(R.id.voice_toggle);
         suggestion = (MySettingItemView) findViewById(R.id.suggestion);
         about_us = (MySettingItemView) findViewById(R.id.about_us);
+        passwordState = SharepreferenceUtils.getBooleanSharepreference(context, SpUtils.DAILY_LIFE,0,SpUtils.SET_PASSWORD);
     }
 
     @Override
@@ -61,9 +70,23 @@ public class Setting2Activity extends BaseActivity {
     }
 
     @Override
+    protected void onStart() {
+        super.onStart();
+        if (passwordState == false){
+            password.setCenterText("开启");
+        }else {
+            password.setCenterText("关闭");
+        }
+    }
+
+    @Override
     public void initData() {
         setTitleText("设置");
-
+        if (passwordState == false){
+            password.setCenterText("开启");
+        }else {
+            password.setCenterText("关闭");
+        }
     }
 
     @Override
@@ -75,8 +98,16 @@ public class Setting2Activity extends BaseActivity {
                 startActivity(intent);
                 break;
             case R.id.password:
-                intent = new Intent(context, PasswordActivity.class);
-                startActivity(intent);
+                //判断当前开关是否打开
+
+                if (!passwordState){
+                    intent = new Intent(context, GestureEditActivity.class);
+                    startActivity(intent);
+                }else {
+                    intent = new Intent(context, PasswordActivity.class);
+                    startActivity(intent);
+                }
+
                 break;
             case R.id.out_record:
                 Toast.makeText(context, "out_record", Toast.LENGTH_SHORT).show();

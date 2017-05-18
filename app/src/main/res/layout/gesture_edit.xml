@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#f2f2f2" >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@color/pink">
+        <ImageView
+            android:id="@+id/ll_head_left"
+            android:layout_width="@dimen/title_image_size"
+            android:layout_height="@dimen/title_image_size"
+            android:layout_marginLeft="@dimen/title_left"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:src="@mipmap/back"
+            />
+        <TextView
+            android:id="@id/left"
+            android:layout_toRightOf="@id/ll_head_left"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:textSize="20dp"
+            android:textColor="@color/white"
+            android:layout_marginLeft="@dimen/title_left"
+            android:text="手势密码"/>
+
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/gesture_tip_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="75.67dp"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/tv_edit_texttip"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="@string/set_gesture_pattern"
+            android:textColor="@color/color_black"
+            android:textSize="@dimen/detail_text_size_big16" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/fl_edit_gesture_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:gravity="center_horizontal" >
+    </RelativeLayout>
+
+
+</LinearLayout>

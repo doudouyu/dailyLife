@@ -96,6 +96,10 @@ public class NumberManageActivity extends BaseActivity {
         rlQQ.setOnClickListener(this);
         rlWeChat.setOnClickListener(this);
         iv_icon_change.setOnClickListener(this);
+        String address = SharepreferenceUtils.getSharepreference(context,"pictureAddress",0,SpUtils.PICTUREADDRESS);
+        if (address!= null&&address.length()>1){
+            showImage(address);
+        }
 
     }
 
@@ -256,6 +260,7 @@ public class NumberManageActivity extends BaseActivity {
             try {
                 outputStream = new FileOutputStream(fileName);
                 bitmap.compress(Bitmap.CompressFormat.JPEG, 100, outputStream);
+                SharepreferenceUtils.setSharepreference(context,"pictureAddress",0,SpUtils.PICTUREADDRESS,fileName);
                 showImage(fileName);
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
@@ -277,6 +282,7 @@ public class NumberManageActivity extends BaseActivity {
             c.moveToFirst();
             int columnIndex = c.getColumnIndex(filePathColumns[0]);
             String imagePath = c.getString(columnIndex);
+            SharepreferenceUtils.setSharepreference(context,"pictureAddress",0,SpUtils.PICTUREADDRESS,imagePath);
             showImage(imagePath);
             c.close();
         }

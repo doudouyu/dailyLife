@@ -23,6 +23,7 @@ public class MySettingItemView extends LinearLayout{
     private ImageView ivIcon;
     private ImageView ivBack;
     private SwitchButton button;
+    private View view;
 
     public MySettingItemView(Context context) {
         super(context);
@@ -40,7 +41,7 @@ public class MySettingItemView extends LinearLayout{
     }
 
     private void initView(Context context, AttributeSet attrs) {
-        View view = LayoutInflater.from(context).inflate(R.layout.my_setting_item, this, true);
+        view = LayoutInflater.from(context).inflate(R.layout.my_setting_item, this, true);
         tvLeft = (TextView) view.findViewById(R.id.tv_setting_title);
         tvCenter = (TextView) view.findViewById(R.id.tv_setting_text);
         ivIcon = (ImageView) view.findViewById(R.id.iv_setting_icon);
@@ -85,5 +86,9 @@ public class MySettingItemView extends LinearLayout{
     }
     public void setLeftText(String leftText) {
         tvLeft.setText(leftText);
+    }
+    public boolean getButtonState() {
+       boolean state = button.isChecked();
+       return state;
     }
 }

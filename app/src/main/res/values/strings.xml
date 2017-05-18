@@ -28,4 +28,81 @@
     <string name="ok">确定</string>
     <string name="message_content">您的好友邀请您下载微记账app，一起联手记账吧！</string>
     <string name="check_code">654234</string>
+
+    <string name="set_gesture_pattern">绘制解锁图案，至少连接4个点</string>
+    <string name="redraw">重绘</string>
+    <string name="gesture_continue">继续</string>
+    <string name="confirm">确认</string>
+    <string name="drawguesturewarning">至少连接4个点</string>
+    <string name="gesture_record">图案已记录</string>
+    <string name="drawguestureagain">再次绘制图案进行确认</string>
+    <string name="drawagain">两次图案不同，请重试 </string>
+    <string name="settingok">设置并开启密锁成功</string>
+    <string name="changegestureok">手势密码更新成功</string>
+    <string name="set_gesture_code">设置手势密码</string>
+    <string name="verify_gesture_code">校验手势密码</string>
+    <string name="release_hande_when_finish">完成后松开手指</string>
+    <string name="your_gesture_code">您的手势密码已绘制</string>
+    <string name="cancel">取消</string>
+    <string name="passwdok">手势密码验证通过，请绘制新手势密码。</string>
+    <string name="set_guest_code">请设置安全问题，以防忘记图案</string>
+    <string name="first_name_mother">您母亲的姓氏是什么？</string>
+    <string name="your_birth_place">您的出生地是哪里？</string>
+    <string name="primary_teacher_name">您印象最深的小学老师姓氏？</string>
+    <string name="your_favourite_movie">您最喜欢的电影？</string>
+    <string name="your_favourite_song">您最喜欢的歌曲？</string>
+    <string name="your_best_friend_name">您最好朋友的姓氏？</string>
+    <string name="please_answer_ques">请回答以下安全问题</string>
+    <string name="please_make_call">忘记安全问题答案，请致电010-62926683</string>
+    <string name="wrong_answer">回答错误，请重试</string>
+
+    <string name="wrong_answer_seven">输入错误，还可以再输入7次</string>
+    <string name="wrong_answer_six">输入错误，还可以再输入6次</string>
+    <string name="wrong_answer_five">输入错误，还可以再输入5次</string>
+    <string name="wrong_answer_four">输入错误，还可以再输入4次</string>
+    <string name="wrong_answer_three">输入错误，还可以再输入3次</string>
+    <string name="wrong_answer_two">输入错误，还可以再输入2次</string>
+    <string name="wrong_answer_one">输入错误，还可以再输入1次</string>
+    <string name="wrong_answer_zero">输入错误，无法继续输入</string>
+
+    <string name="close_sec_service">关闭加密服务</string>
+    <string name="open_sec_service">开启加密服务</string>
+    <string name="update_gesture">修改手势密码</string>
+    <string name="set_gesture">设置手势密码</string>
+    <string name="sec_service_notopen">加密服务未开启</string>
+
+    <string name="remember_answer">请牢记答案，以免无法找回密码</string>
+    <string name="submit">提交</string>
+    <string name="set_gesture_code_failed">提交失败</string>
+
+
+
+    <string name="input_gesture_code">输入手势密码</string>
+    <string name="input_correct_gesture_code">请绘制正确的手势密码</string>
+    <string name="forget_gesture_code">忘记手势密码</string>
+    <string name="loadsdsuccess">密锁已开启，当前为加密模式</string>
+    <string name="passwderror">密码错误，请重新输入，您一共有8次尝试机会</string>
+    <string name="warning">输入错误，若错误累计超过8次，应用将被锁死，无法使用</string>
+    <string name="warning_two_left">您已输入6次错误，建议使用忘记密码找回功能，以防密码被锁死</string>
+    <string name="warning_two_left_call">您已输入6次错误，建议使用忘记密码找回功能，请先挂断密电，再点击密锁</string>
+    <string name="opportunityleft">输入错误，您还有</string>
+    <string name="willlock">次机会</string>
+    <string name="code_wrong_again">密码错误，请重新输入</string>
+    <string name="last_chance">您还有最后一次尝试机会。若持续输入错误，密码将被锁死</string>
+    <string name="no_chance">您已经累计输入8次错误，请重置密码</string>
+    <string name="locked">对不起，您已输入8次错误，应用数据已锁死，请卸载重装，您的数据将会清除</string>
+
+
+
+    <string name="tip">提示</string>
+    <string name="loadsd_info">您尚未设置手势密码，请进行初始设置。</string>
+    <string name="unloadsd_info">是否关闭密锁？</string>
+    <string name="unloadsd_info_hascall">有通话正在进行，关闭密锁将无法解密。确认关闭吗？</string>
+    <string name="unload">关闭</string>
+    <string name="unload_lock">关闭密锁</string>
+    <string name="unload_success">密锁已关闭，当前为非加密模式</string>
+    <string name="hangup_to_set_gesture">未设置手势密码，无法进行语音解密，请挂断后及时设置手势密码。</string>
+    <string name="hangup">挂断</string>
+    <string name="warning_to_set">退出设置</string>
+    <string name="warning_skip">手势密码尚未设置完成，是否放弃设置？</string>
 </resources>
